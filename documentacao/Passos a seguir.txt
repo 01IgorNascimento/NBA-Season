@@ -1,0 +1,12 @@
+Items a se Fazer no projeto:
+1 - criar modelagem X
+2 - criar protótipo tela escolher time
+3 - criar a parte escolher time 
+4 - criar script com dados estáticos 
+5 - criar funções que guardam o time criado pelo usuario no banco de dados 
+6 - Criar a página inicial, com dividao kobe/NBA 
+7 - criar a parte de como o time vai se comportar jogando a temporada 
+8 - criar o relatório 
+ 
+
+
