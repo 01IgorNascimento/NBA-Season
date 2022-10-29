@@ -36,10 +36,67 @@
         1px 0px 0px rgb(0, 0, 0);
 }
 
-.subCaixaPrincipal {
+.CaixaPrincipal {
     border: 2px solid black;
-    height: 400px;
+    height: 500px;
     width: 95%;
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 30px;
+}
+
+
+
+.listaPosicoes ul {
+    margin-top: -15px;
+    display: flex;
+
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.listaPosicoes ul li {
+    list-style-type: none;
+    padding-right: 14px;
+    margin: 0px 0px 0px 10px;
+    border: 2px solid black;
+    width: 90%;
+    height: 460px;
+    flex: 1;
+    align-items: stretch;
+    margin-bottom: 0px;
+    position: relative;
+    align-items: center;
+    text-align: center;
+
+}
+
+.listaPosicoes ul li p {
+    position: relative;
+    margin-top: 430px;
+
+}
+
+#caixaTime {
+    border: none;
+}
+
+#caixaTime img {
+    position: absolute;
+    margin-left: -70px;
+    width: 300px;
+    margin-top: 10px;
+}
+
+.tituloTime {
+    font-size: 20pt;
+}
+
+#caixaTime select {
+
+    font-size: 13pt;
+    position: relative;
+    margin-top: 200px;
+    width: 160px;
+    height: 130px;
 }
