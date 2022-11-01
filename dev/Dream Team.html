@@ -22,20 +22,20 @@
  
                 <div class="listaPosicoes">
                     <ul>
-                        <li><div class="zoom"><img src="img/quadra2.webp" alt="" srcset="" class="imgLI"></div><p><span style="color: blue;">P</span><span style="color: red;">G</span></p></li>
+                        <li><img src="img/quadra2.webp" alt="" srcset="" class="imgLI"><p><span style="color: blue;">P</span><span style="color: red;">G</span></p></li>
                         <li><img src="img/quadra2.webp" alt="" srcset="" class="imgLI"><p><span style="color: blue;">S</span><span style="color: red;">G</span></p></li>
                         <li><img src="img/quadra2.webp" alt="" srcset="" class="imgLI"><p><span style="color: blue;">S</span><span style="color: red;">F</span></p></li>
                         <li><img src="img/quadra2.webp" alt="" srcset="" class="imgLI"><p><span style="color: blue;">P</span><span style="color: red;">F</span></p></li>
                         <li><img src="img/quadra2.webp" alt="" srcset="" class="imgLI"><p><span style="color: blue;">C</span></p></li>
                         <li id="caixaTime">
                             <h2 class="tituloTime">Escolha um jogador</h2>
-                            <img src="img/times/Denver-Nuggets-Logo.png" alt="">
-                            <select name="" id="" multiple>
-                                <option value="">PG - Jamal Murray: 84</option>
-                                <option value="">SG - Jamal Murray: 84</option>
-                                <option value="">SF - Michael Porter Jr: 80</option>
-                                <option value="">PF - Aaron Gordon: 79</option>
-                                <option value="">C - Nikola Jokic: 96</option>
+                            <img src="img/times/denverNuggets/Denver-Nuggets-Logo.png" alt="">
+                            <select name="" id="selJogadore" multiple onchange="MudarJogador()">
+                                <option value="jamalMurray" >PG - Jamal Murray: 84</option>
+                                <option value="jamalMurray">SG - Bones Hyland: 76</option>
+                                <option value="jamalMurray">SF - Michael Porter Jr: 80</option>
+                                <option value="jamalMurray">PF - Aaron Gordon: 79</option>
+                                <option value="jamalMurray">C - Nikola Jokic: 96</option>
                             </select>
                         </li>
                     </ul>
@@ -47,3 +47,5 @@
     </section>
 </body>
 </html>
+
+<script src="logicaJogo.js"></script>
