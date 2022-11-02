@@ -32,6 +32,8 @@
 
     <p>Senha</p> 
     <input id="senha_input" type="password" placeholder="******">
+    <div id="msgemail" class="msgErro"></div>
+
 
 
     <button class="btn" onclick="entrar()">Entrar</button>
@@ -47,6 +49,7 @@
 </html>
 
 <script>
+
 
 
     function entrar() {
@@ -98,8 +101,7 @@
                 });
 
             } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
+                document.getElementById("msgemail").innerHTML="<font color='red'>E-mail ou senha inválidos </font>";
 
                 resposta.text().then(texto => {
                     console.error(texto);
