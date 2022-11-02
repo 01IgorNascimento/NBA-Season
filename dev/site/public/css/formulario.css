@@ -27,7 +27,7 @@
 }
 
 #div_cadastro {
-    margin-top: 10px;
+    margin-top: 20px;
 
 }
 
@@ -39,7 +39,7 @@
 
 .titulo {
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 40px;
     width: 50%;
     height: 100px;
     margin: 20px auto auto auto;
@@ -86,7 +86,7 @@
     justify-content: center;
     width: 60%;
     height: 500px;
-    margin: 30px auto auto auto;
+    margin: 50px auto auto auto;
 }
 
 .caixa_input input {
@@ -99,7 +99,6 @@
 
 .caixa_input button {
     background-color: #0e499d;
-
     color: white;
     border: none;
     font-size: 13pt;
@@ -112,8 +111,7 @@
 .caixa_input h3 {
     color: #0e499d;
     font-family: Arial, Helvetica, sans-serif;
-
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
     width: 100%;
 }

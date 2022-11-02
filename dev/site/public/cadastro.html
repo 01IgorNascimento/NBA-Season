@@ -27,7 +27,7 @@
 
                     <p>E-Mail <b>*</b></p> 
                     <input id="email_input" type="text" placeholder="meuemail@provedor.com" onkeyup="validacaoEmail(email_input)">
-                    <div id="msgemail" class="msgErro"></div>
+                    <div id="msgEmail" class="msgErro"></div>
 
                     <p>Senha <b>*</b></p> 
                     <input id="senha_input" type="password" placeholder="******" onkeyup="validacaoSenha()">
@@ -68,16 +68,17 @@ function validacaoEmail(field) {
         (dominio.indexOf(".") >=1)&&
         (dominio.lastIndexOf(".") < dominio.length - 1)) {
         
-        document.getElementById("msgemail").innerHTML="";
+        document.getElementById("msgEmail").innerHTML="";
         permissaoGmail=1
     } else if(field.value==""){
-        document.getElementById("msgemail").innerHTML="";
+        document.getElementById("msgEmail").innerHTML="";
 
     }   
     else{
-    document.getElementById("msgemail").innerHTML="<font color='red'>E-mail inválido </font>";
+    document.getElementById("msgEmail").innerHTML="<font color='red'>E-mail inválido </font>";
     permissaoGmail=0
     }
+    console.log(permissaoGmail)
     }
 
 
@@ -120,11 +121,10 @@ function validacaoSenha () {
             msg_nome.innerHTML = "<font color='red'>O campo responsável não pode ser um número</font>"
             permissaoNome = 0
         }
-
+        console.log(`Gmail: ${permissaoGmail} senha${permissaoSenha} confirmarSenha: ${permissaoConfirmaSenha} nome: ${permissaoNome}`)
         // VALIDAÇÃO TOTAL
-        if( permissaoGmail == 1 && permissaoSenha == 1 && permissaoConfirmaSenha == 1 
-         && permissaoNome == 1 &&
-        permissaoNome == 1){
+        if(permissaoGmail == 1 && permissaoSenha == 1 && permissaoConfirmaSenha == 1 
+         && permissaoNome == 1){
             cadastrar()
         }
         else{
