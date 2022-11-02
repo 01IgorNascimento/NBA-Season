@@ -23,14 +23,20 @@
             <div class="caixa_input">
                     <p>Nome <b>*</b></p> 
                     <input id="nome_input" type="text" placeholder="Seu nome">
+                    <div id="msg_nome" class="msgErro"></div>
+
                     <p>E-Mail <b>*</b></p> 
-                    <input id="email_input" type="text" placeholder="meuemail@provedor.com">
+                    <input id="email_input" type="text" placeholder="meuemail@provedor.com" onkeyup="validacaoEmail(email_input)">
+                    <div id="msgemail" class="msgErro"></div>
+
                     <p>Senha <b>*</b></p> 
-                    <input id="senha_input" type="password" placeholder="******">
+                    <input id="senha_input" type="password" placeholder="******" onkeyup="validacaoSenha()">
+                    <div id="msgSenha" class="msgErro"></div>
                     <p>Confirme Sua Senha<b>*</b> </p> 
-                    <input id="confirmacao_senha_input" type="password" placeholder="******">
+                    <input id="confirmacao_senha_input" type="password" placeholder="******" onkeyup="validacaoSenha()">
+                    <div id="msg_confirmaSenha" class="msgErro"></div>
                     <h3><b>* Campos de preenchimento obrigatório</b></h3>
-                    <button onclick="cadastrar()">Cadastrar</button>
+                    <button onclick="ValidaCadastrar()">Cadastrar</button>
                 </div>
             </div>
             <div class="div_caixa_imagem">
@@ -39,23 +45,105 @@
             </div>
         </div>
 </body>
-
 </html>
 
 <script>
-    function cadastrar() {
-        alert("teste")
-        aguardar();
+var permissaoGmail = 0
+var permissaoSenha = 0
+var permissaoConfirmaSenha = 0
+var permissaoNome = 0
 
+
+function validacaoEmail(field) {
+    usuario = field.value.substring(0, field.value.indexOf("@"));
+    dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
+    
+    if ((usuario.length >=1) &&
+        (dominio.length >=3) &&
+        (usuario.search("@")==-1) &&
+        (dominio.search("@")==-1) &&
+        (usuario.search(" ")==-1) &&
+        (dominio.search(" ")==-1) &&
+        (dominio.search(".")!=-1) &&
+        (dominio.indexOf(".") >=1)&&
+        (dominio.lastIndexOf(".") < dominio.length - 1)) {
+        
+        document.getElementById("msgemail").innerHTML="";
+        permissaoGmail=1
+    } else if(field.value==""){
+        document.getElementById("msgemail").innerHTML="";
+
+    }   
+    else{
+    document.getElementById("msgemail").innerHTML="<font color='red'>E-mail inválido </font>";
+    permissaoGmail=0
+    }
+    }
+
+
+function validacaoSenha () {
+    var senha = senha_input.value
+    var confirmaSenha = confirmacao_senha_input.value
+
+    if (senha != '' && senha.length < 8) {
+        msgSenha.innerHTML = "<font color='red'>A senha deve conter 8 ou mais caracteres</font>"
+        permissaoSenha=0
+    } else {
+        msgSenha.innerHTML = ""
+        permissaoSenha=1
+    }
+
+    if (confirmaSenha != '' && confirmaSenha.length < 8) {
+        msg_confirmaSenha.innerHTML = "<font color='red'>A senha deve conter 8 ou mais caracteres</font>"
+        permissaoConfirmaSenha=0
+    } else {
+        msg_confirmaSenha.innerHTML = ""
+        permissaoConfirmaSenha=1
+        
+        if (senha != confirmaSenha) {
+            msg_confirmaSenha.innerHTML = "<font color='red'>A senhas devem ser iguais</font>"
+            permissaoConfirmaSenha=0
+        }
+    }
+}
+    
+    function ValidaCadastrar(){
+        var nome = nome_input.value
+ 
+        if(nome.length == 0){
+            msg_nome.innerHTML = "<font color='red'>O campo responsável não pode estar vazio</font>"
+            permissaoNome = 0
+        } else if (isNaN(nome)) {
+            msg_nome.innerHTML = ""
+            permissaoNome = 1
+        } else {
+            msg_nome.innerHTML = "<font color='red'>O campo responsável não pode ser um número</font>"
+            permissaoNome = 0
+        }
+
+        // VALIDAÇÃO TOTAL
+        if( permissaoGmail == 1 && permissaoSenha == 1 && permissaoConfirmaSenha == 1 
+         && permissaoNome == 1 &&
+        permissaoNome == 1){
+            cadastrar()
+        }
+        else{
+            alert("preencha corretamente os campos que contenham *")
+        }
+    }
+
+    function cadastrar() {
+
+        aguardar();
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-
             finalizarAguardar();
             return false;
         }
@@ -81,8 +169,6 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-
-
                 setTimeout(() => {
                     window.location = "login.html";
                 }, "2000")
@@ -102,5 +188,8 @@
 
     function sumirMensagem() {
     }
+
+
+
 
 </script>
