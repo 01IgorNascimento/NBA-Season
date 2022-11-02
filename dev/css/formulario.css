@@ -21,7 +21,7 @@
 }
 
 #div_cadastro {
-    margin-top: 20px;
+    margin-top: 10px;
 
 }
 
@@ -59,7 +59,7 @@
 
 .titulo h2 {
     margin-top: 5px;
-    font-size: 13pt;
+    font-size: 12pt;
     flex-wrap: wrap;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(131, 127, 127);
@@ -80,7 +80,7 @@
     justify-content: center;
     width: 60%;
     height: 500px;
-    margin: 50px auto auto auto;
+    margin: 30px auto auto auto;
 }
 
 .caixa_input input {
@@ -107,7 +107,7 @@
     color: #0e499d;
     font-family: Arial, Helvetica, sans-serif;
 
-    margin-top: 25px;
+    margin-top: 20px;
     text-align: center;
     width: 100%;
 }
