@@ -2,7 +2,7 @@ var mysql = require("mysql2");
 
 var mySqlConfig = {
     host: "localhost",
-    database: "aquatech",
+    database: "nba_season",
     user: "root",
     password: "6384DSsdf*",
 };
