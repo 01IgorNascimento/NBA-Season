@@ -15,7 +15,6 @@
             <img src="img/logoNba.png" alt="" class="logo">
         </div>
     </header>
-
     <section class="principal">
         <h1 class="titulo">Monte o Seu Dream Team</h1>
         <div class="CaixaPrincipal">
@@ -29,114 +28,29 @@
                         <li onclick="EscolherJogador(imagemSG)">
                             <img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemSG">
                             <div style="color: rgb(255, 255, 255);">SG</div>                        </li>
-                        <li onclick="EscolherJogador(imagemPF)">
-                            <img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemPF">
-                            <div style="color: rgb(255, 255, 255);">PF</div>                        </li>
                         <li onclick="EscolherJogador(imagemSF)">
                             <img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemSF">
                             <div style="color: rgb(255, 255, 255);">SF</div>                        </li>
+                        <li onclick="EscolherJogador(imagemPF)">
+                            <img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemPF">
+                            <div style="color: rgb(255, 255, 255);">PF</div>                        </li>
                         <li onclick="EscolherJogador(imagemC)"><img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemC">
                             <div style="color: rgb(255, 255, 255);">C</div>                        </li>
                         <li id="caixaTime">
                             <h2 class="tituloTime">Escolha um jogador</h2>
-                            <img src="img/times/denverNuggets/Denver-Nuggets-Logo.png" alt="">
+                            <img src="img/times/denverNuggets/Denver-Nuggets-Logo.png" alt="" id="logoTime">
                             <select name="" id="selJogadores" multiple>
-                                
                             </select>
                         </li>
                     </ul>
                 </div>
-        
         </div>
     </section>
+    
+    <script src="FuncoesSite/validaCadastro.js"></script>
+    <script src="FuncoesSite/classeTime.js"></script>
+    <script src="FuncoesSite/classeJogador.js"></script>
+    <script src="FuncoesSite/populandoDados.js"></script>
+    <script src="FuncoesSite/funcoesDreamTeam.js"></script>
 </body>
 </html>
-<script>
-//colocar essa parte em uma função classe
-class Time {
-  constructor(id, nome, logo, listaJogadores) {
-    this.id = id;
-    this.nome = nome;
-    this.logo = logo;
-    this.listaJogadores = listaJogadores
-  }
-}
-class jogador {
-  constructor(id, nome, posicao, overhall, imagemRosto, imagem) {
-    this.id = id;
-    this.nome = nome;
-    this.posicao = posicao
-    this.overhall = overhall;
-    this.imagemRosto = imagemRosto;
-    this.imagem = imagem;
-  }
-}
-// colocar essa parte em um arquivo de funcoes do jogo
-    function EscolherJogador(imagemAlvo){
-        var select =  selJogadores.value
-       imagemAlvo.src = select
-}
-
-
-
-
-const murray = new jogador()
-murray.id=1
-murray.nome = "Jamal Murray"
-murray.posicao = "PG"
-murray.overhall = 84
-murray.imagemRosto =""
-murray.imagem ="img/times/denverNuggets/jammal_murray.webp"
-
-const hyland = new jogador()
-hyland.id=2
-hyland.nome = "Bones Hyland"
-hyland.posicao = "SG"
-hyland.overhall = 76
-hyland.imagemRosto =""
-hyland.imagem ="img/bones_hyland.jpg"
-
-const porterjr = new jogador()
-porterjr.id=3
-porterjr.nome = "Michael Porter JR"
-porterjr.posicao = "SF"
-porterjr.overhall = 80
-porterjr.imagemRosto =""
-porterjr.imagem ="img/times/denverNuggets/michael_porter_jr.jpg"
-
-const gordon = new jogador()
-gordon.id=4
-gordon.nome = "Aaron Gordon"
-gordon.posicao = "PF"
-gordon.overhall = 79
-gordon.imagemRosto =""
-gordon.imagem ="img/times/denverNuggets/aaron_gordon.jpg"
-
-const jokic = new jogador()
-jokic.id=5
-jokic.nome = "Nikola Jokic"
-jokic.posicao="C"
-jokic.overhall = 96
-jokic.imagemRosto =""
-jokic.imagem ="img/times/denverNuggets/Nikola_Jokic.jpg"
-
-var nuggetsJogadores = [murray, hyland, porterjr, gordon, jokic];
-
-const nuggets = new Time()
-    nuggets.nome="Denver Nuggets"
-    nuggets.id=1
-    nuggets.logo="img/times/denverNuggets/Denver-Nuggets-Logo.png"
-    nuggets.listaJogadores = nuggetsJogadores
-
-
-function AlterarTime(){
-const select = document.querySelector('#selJogadores')
-
-for(var x=0; x<nuggets.listaJogadores.length; x++){
-    var stringSelect = `${nuggets.listaJogadores[x].posicao} -  ${nuggets.listaJogadores[x].nome}: ${nuggets.listaJogadores[x].overhall}`
-    select.options[select.options.length] = new Option(`${stringSelect}`, `${nuggets.listaJogadores[x].imagem}`);
-}
-
-}
-AlterarTime()
-</script>

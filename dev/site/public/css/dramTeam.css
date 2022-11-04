@@ -98,6 +98,11 @@
     opacity: 0.6;
 }
 
+#logoTime {
+    width: 400px;
+    height: 180px;
+}
+
 #caixaTime {
     border: none;
     box-shadow: none;

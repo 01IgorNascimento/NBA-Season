@@ -1,5 +1,3 @@
-alert("aaa")
-
 var permissaoGmail = 0
 var permissaoSenha = 0
 var permissaoConfirmaSenha = 0
@@ -22,6 +20,7 @@ function validacaoEmail(field) {
 
         document.getElementById("msgemail").innerHTML = "";
         permissaoGmail = 1
+        alert("AAA")
     } else if (field.value == "") {
         document.getElementById("msgemail").innerHTML = "";
 
@@ -82,4 +81,8 @@ function ValidaCadastrar() {
     else {
         alert("preencha corretamente os campos que contenham *")
     }
+    console.log(permissaoGmail)
+    console.log(permissaoSenha)
+    console.log(permissaoConfirmaSenha)
+    console.log(permissaoNome)
 }
