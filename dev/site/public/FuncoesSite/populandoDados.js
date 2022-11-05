@@ -102,3 +102,5 @@ var timeEscolhido = nuggets
 timeEscolhido.listaJogadores
 
 var jogadoresEscolhidos = []
+
+var contadorJogadores = 0

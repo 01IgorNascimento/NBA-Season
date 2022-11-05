@@ -2,11 +2,24 @@ function MudarTime() {
 }
 function EscolherJogador(imagemAlvo) {
     var select = selJogadores.value
-    jogadoresEscolhidos.push(select)
+    for (var x = 0; x < jogadoresEscolhidos.length; x++) {
+        if (select == jogadoresEscolhidos[x]) {
+            alert("Andre Wiggns ja está no seu time")
+            return
+        }
 
+    }
     if (imagemAlvo.src == "http://localhost:3333/img/quadra2.webp") {
         imagemAlvo.src = select
-        AlterarTime()
+        jogadoresEscolhidos.push(select)
+        contadorJogadores++
+        if (contadorJogadores == 1) {
+            window.location = "http://localhost:3333/Dream%20Team.html#popup1"
+        }
+        else {
+            AlterarTime()
+        }
+
     }
 
 
