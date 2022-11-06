@@ -130,5 +130,10 @@
     margin-top: 200px;
     width: 90%;
     font-weight: bold;
-    height: 130px;
+    height: 100px;
+    overflow: hidden;
+}
+
+option {
+    border-bottom: 1px solid black;
 }

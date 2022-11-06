@@ -9,6 +9,8 @@
     <link rel="import" href="fonts/quicksand/">
     <link rel="stylesheet" href="css/modal.css">
     <title>Monte seu Dream Team</title>
+    <script src="js/funcoes.js"></script>
+
 </head>
 <body>
     <header class="cabecalho">
@@ -17,7 +19,7 @@
         </div>
     </header>
     <section class="principal">
-        <h1 class="titulo">Monte o Seu Dream Team</h1>
+        <h1 class="titulo" id="b_usuario">Monte o Seu Dream Team</h1>
         <div class="CaixaPrincipal">
                 <div class="listaPosicoes">
                     <ul>
@@ -48,7 +50,6 @@
         </div>
     </section>
     
-    <a class="button" onclick="abrirModalJs()">Let me Pop up</a>
 
   <div id="popup1" class="overlay">
     <div class="popup" >
@@ -58,12 +59,7 @@
 
         </div>
 
-
-
         <div class="caixaModal" id="caixaModal">
-
-           
-
         </div>
      
       <div class="content">
@@ -72,11 +68,10 @@
   </div>
   
 <script>
-    //href="#popup1"
-    //href="#
-  
+
     function abrirModalJs(){
     window.location="http://localhost:3333/Dream%20Team.html#popup1"
+
   }
   function fechar(){
     window.location="http://localhost:3333/Dream%20Team.html"

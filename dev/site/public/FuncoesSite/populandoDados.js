@@ -73,6 +73,7 @@ wiggins.id = 7
 wiggins.nome = "Andrew Wiggins "
 wiggins.posicao = "SG"
 wiggins.salario = 31579390
+wiggins.idade = 27
 wiggins.overhall = 84
 wiggins.imagemRosto = "img/times/warriors/wiggnsRosto.png"
 wiggins.imagem = "img/times/warriors/wiggins.jpg"
