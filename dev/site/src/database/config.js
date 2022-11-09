@@ -12,6 +12,7 @@ function executar(instrucao) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         return new Promise(function (resolve, reject) {
             sql.connect(sqlServerConfig).then(function () {
+                console.log("Retorno da query: " + sql.query(instrucao))
                 return sql.query(instrucao);
             }).then(function (resultados) {
                 console.log(resultados);

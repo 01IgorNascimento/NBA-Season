@@ -1,4 +1,4 @@
-var timeModel = require("../models/timeModel");
+var jogadorModel = require("../models/jogadorModel");
 console.log("entramos na controller")
 var sessoes = [];
 
@@ -8,7 +8,7 @@ function testar(req, res) {
 }
 
 function listar(req, res) {
-    timeModel.listar()
+    jogadorModel.listar()
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -26,19 +26,20 @@ function listar(req, res) {
 
 
 
-function cadastrarTime(req, res) {
+function cadastrarJogador(req, res) {
 
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nomeJogador1 = req.body.nomeJogador1Server;
-    var nomeJogador2 = req.body.nomeJogador2Server;
-    var nomeJogador3 = req.body.nomeJogador3Server;
-    var nomeJogador4 = req.body.nomeJogador4Server;
-    var nomeJogador5 = req.body.nomeJogador5Server;
-    var idUsuario = req.body.idUsuarioServer;
+    var nomeJogador = req.body.nomeJogadorServer;
+    var idJogador = req.body.IdJogadoServer;
+    var idUsuario = req.body.idUsuarioServer
+
+    console.log(nomeJogador);
+    console.log(idJogador);
+    console.log(idUsuario);
     // Faça as validações dos valores
 
 
-    timeModel.cadastrarTime(nomeJogador1, nomeJogador2, nomeJogador3, nomeJogador4, nomeJogador5, idUsuario)
+    jogadorModel.cadastrarJogador(idJogador, idJogador, nomeJogador)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -57,7 +58,7 @@ function cadastrarTime(req, res) {
 }
 
 module.exports = {
-    cadastrarTime,
+    cadastrarJogador,
     listar,
     testar
 }

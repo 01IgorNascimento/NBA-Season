@@ -27,18 +27,28 @@ function EscolherJogador(imagemAlvo) {
 
         if (imagemAlvo.src == "http://localhost:3333/img/quadra2.webp" && jogadorRepetido == false) {
             imagemAlvo.src = select
+
             urlJogadoresEscolhidos.push(select)
+
+
             contadorJogadores++
-            if (contadorJogadores == 5) {
-                for (var z = 0; z < urlJogadoresEscolhidos.length; z++) {
-                    for (var x = 0; x < listaTodosTimes.length; x++) {
-                        for (var y = 0; y < listaTodosTimes[x].listaJogadores.length; y++) {
-                            if (urlJogadoresEscolhidos[z] == listaTodosTimes[x].listaJogadores[y].imagem) {
-                                jogadoresEscolhidos.push(listaTodosTimes[x].listaJogadores[y])
-                            }
+
+            var jogadorCadastrado
+
+            for (var z = 0; z < urlJogadoresEscolhidos.length; z++) {
+                for (var x = 0; x < listaTodosTimes.length; x++) {
+                    for (var y = 0; y < listaTodosTimes[x].listaJogadores.length; y++) {
+                        if (urlJogadoresEscolhidos[z] == listaTodosTimes[x].listaJogadores[y].imagem) {
+                            jogadorCadastrado = listaTodosTimes[x].listaJogadores[y]
                         }
                     }
                 }
+            }
+            jogadoresEscolhidos.push(jogadorCadastrado)
+
+            cadastrarJogador(jogadorCadastrado.nome, jogadorCadastrado.id)
+
+            if (contadorJogadores == 5) {
                 window.location = "http://localhost:3333/Dream%20Team.html#popup1"
 
                 AtualizarModal()
@@ -92,15 +102,16 @@ function AtualizarModal() {
             `
     }
     caixaModal.innerHTML += `
-            <button class="botoesModal" id = "btnContinuar" onclick="cadastrarTime()"> Continuar</button>
+            <button class="botoesModal" id = "btnContinuar" onclick="cadastrarJogador()"> Continuar</button>
             <button class="botoesModal" id="btnNovamente" onclick="fechar()">Jogar Novamente</button>
         `
 }
 
-function cadastrarTime() {
+function cadastrarJogador(nomeJogador, idJogador) {
     var idUsuario = validarSessao()
 
-    fetch("/times/cadastrarTime", {
+    console.log(idUsuario)
+    fetch("/jogadores/cadastrarJogador", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -108,11 +119,8 @@ function cadastrarTime() {
         body: JSON.stringify({
             // crie um atributo que recebe o valor recuperado aqui
             // Agora vá para o arquivo routes/usuario.js
-            nomeJogador1Server: jogadoresEscolhidos[0].nome,
-            nomeJogador2Server: jogadoresEscolhidos[1].nome,
-            nomeJogador3Server: jogadoresEscolhidos[2].nome,
-            nomeJogador4Server: jogadoresEscolhidos[3].nome,
-            nomeJogador5Server: jogadoresEscolhidos[4].nome,
+            nomeJogadorServer: nomeJogador,
+            IdJogadoServer: idJogador,
             idUsuarioServer: idUsuario
 
         })
