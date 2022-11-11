@@ -4,7 +4,7 @@ use nba_season;
  drop database Nba_season;
  
 create table jogador(
-	id int primary key auto_increment,
+	id int primary key,
     nome varchar(125),
 	idade int,
     salario double,
@@ -28,7 +28,7 @@ create table usuario(
     nome varchar(125),
     email varchar(125),
     senha varchar(125)
-);
+)auto_increment=1000;
 
 create table timeCriado(
 	fkJogador int,

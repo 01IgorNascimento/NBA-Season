@@ -37,7 +37,7 @@ function EscolherJogador(imagemAlvo) {
                 }
             }
             jogadoresEscolhidos.push(jogadorCadastrado)
-            cadastrarTimeCriado(jogadorCadastrado.nome, jogadorCadastrado.id)
+            cadastrarTimeCriado(jogadorCadastrado.nome, jogadorCadastrado.id, sessionStorage.ID_USUARIO)
             if (contadorJogadores == 5) {
                 window.location = "http://localhost:3333/Dream%20Team.html#popup1"
 
@@ -90,14 +90,13 @@ function AtualizarModal() {
             `
     }
     caixaModal.innerHTML += `
-            <button class="botoesModal" id = "btnContinuar" onclick="cadastrarTimeCriado()"> Continuar</button>
-            <button class="botoesModal" id="btnNovamente" onclick="fechar()">Jogar Novamente</button>
+            <button class="botoesModal" id = "btnContinuar" onclick="Continuar()"> Continuar</button>
+            <button class="botoesModal" id="btnNovamente" onclick="JogarNovamente(1)">Jogar Novamente</button>
         `
 }
 
-function cadastrarTimeCriado(nomeJogador, idJogador) {
+function cadastrarTimeCriado(nomeJogador, idJogador, idUsuario) {
     var idUsuario = validarSessao()
-    alert(idJogador)
 
     console.log(idUsuario)
     fetch("/timeCriado/cadastrar", {
@@ -114,15 +113,13 @@ function cadastrarTimeCriado(nomeJogador, idJogador) {
 
         })
     }).then(function (resposta) {
-
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
             setTimeout(() => {
-                window.location = "http://localhost:3333/analytics.html";
+
             }, "2000")
 
-            limparFormulario();
             finalizarAguardar();
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -134,3 +131,30 @@ function cadastrarTimeCriado(nomeJogador, idJogador) {
     return false;
 }
 
+function JogarNovamente(idPassado) {
+    idPassado = sessionStorage.ID_USUARIO
+    alert(idPassado)
+    fetch("/timeCriado/excluir", {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idServer: idPassado
+        })
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            window.location = "http://localhost:3333/Dream%20Team.html"
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+    return false;
+}
+
+function Continuar() {
+    window.location = "http://localhost:3333/analytics.html";
+}

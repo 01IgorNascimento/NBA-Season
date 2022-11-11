@@ -32,13 +32,15 @@ function cadastrar(req, res) {
     var idJogador = req.body.IdJogadoServer;
     var idUsuario = req.body.idUsuarioServer
 
+    console.log(idJogador + idUsuario)
+
     console.log(nomeJogador);
     console.log(idJogador);
     console.log(idUsuario);
     // Faça as validações dos valores
 
 
-    timeCriadoModel.cadastrar(idJogador, idJogador, nomeJogador)
+    timeCriadoModel.cadastrar(nomeJogador, idJogador, idUsuario)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -56,8 +58,34 @@ function cadastrar(req, res) {
 
 }
 
+
+function excluir(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var id = req.body.idServer;
+
+
+    timeCriadoModel.excluir(id)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
+
 module.exports = {
     cadastrar,
     listar,
-    testar
+    testar,
+    excluir
 }

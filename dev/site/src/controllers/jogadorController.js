@@ -36,9 +36,10 @@ function cadastrar(req, res) {
     var salario = req.body.salarioServer
     var idade = req.body.idadeServer
     var fk = req.body.fkServer
+    var id = req.body.idServer
 
 
-    jogadorModel.cadastrar(nomeJogador, overhall, imgRosto, img, salario, idade, fk)
+    jogadorModel.cadastrar(nomeJogador, overhall, imgRosto, img, salario, idade, fk, id)
         .then(
             function (resultado) {
                 res.json(resultado);

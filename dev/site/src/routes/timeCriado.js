@@ -20,4 +20,8 @@ router.post("/autenticar", function (req, res) {
     timeCriadoController.entrar(req, res);
 });
 
+router.delete("/excluir", function (req, res) {
+    timeCriadoController.excluir(req, res);
+});
+
 module.exports = router;

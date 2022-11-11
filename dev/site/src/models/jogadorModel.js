@@ -27,12 +27,12 @@ function entrar(email, senha) {
     return database.executar(instrucao);
 }
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
-function cadastrar(nomeJogador, overhall, imgRosto, img, salario, idade, fk) {
+function cadastrar(nomeJogador, overhall, imgRosto, img, salario, idade, fk, id) {
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO jogador (nome, overhall, imagemRosto, imagem, salario, idade, fkTimePadrao) VALUES ('${nomeJogador}', ${overhall}, '${imgRosto}', '${img}', '${salario}', '${idade}', '${fk}');
+        INSERT INTO jogador (nome, overhall, imagemRosto, imagem, salario, idade, fkTimePadrao, id) VALUES ('${nomeJogador}', ${overhall}, '${imgRosto}', '${img}', '${salario}', '${idade}', '${fk}','${id}' );
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
