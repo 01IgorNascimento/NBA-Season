@@ -1,11 +1,7 @@
 var idUsuario = 0
-
-
 var jogadorRepetido = false
-function MudarTime() {
-}
-function EscolherJogador(imagemAlvo) {
 
+function EscolherJogador(imagemAlvo) {
 
     var select = selJogadores.value
     if (selJogadores.value == "") {
@@ -27,14 +23,10 @@ function EscolherJogador(imagemAlvo) {
 
         if (imagemAlvo.src == "http://localhost:3333/img/quadra2.webp" && jogadorRepetido == false) {
             imagemAlvo.src = select
-
             urlJogadoresEscolhidos.push(select)
-
-
             contadorJogadores++
 
             var jogadorCadastrado
-
             for (var z = 0; z < urlJogadoresEscolhidos.length; z++) {
                 for (var x = 0; x < listaTodosTimes.length; x++) {
                     for (var y = 0; y < listaTodosTimes[x].listaJogadores.length; y++) {
@@ -45,9 +37,7 @@ function EscolherJogador(imagemAlvo) {
                 }
             }
             jogadoresEscolhidos.push(jogadorCadastrado)
-
-            cadastrarJogador(jogadorCadastrado.nome, jogadorCadastrado.id)
-
+            cadastrarTimeCriado(jogadorCadastrado.nome, jogadorCadastrado.id)
             if (contadorJogadores == 5) {
                 window.location = "http://localhost:3333/Dream%20Team.html#popup1"
 
@@ -56,9 +46,7 @@ function EscolherJogador(imagemAlvo) {
             else {
                 AlterarTime()
             }
-
         }
-
     }
 }
 function AlterarTime() {
@@ -102,16 +90,17 @@ function AtualizarModal() {
             `
     }
     caixaModal.innerHTML += `
-            <button class="botoesModal" id = "btnContinuar" onclick="cadastrarJogador()"> Continuar</button>
+            <button class="botoesModal" id = "btnContinuar" onclick="cadastrarTimeCriado()"> Continuar</button>
             <button class="botoesModal" id="btnNovamente" onclick="fechar()">Jogar Novamente</button>
         `
 }
 
-function cadastrarJogador(nomeJogador, idJogador) {
+function cadastrarTimeCriado(nomeJogador, idJogador) {
     var idUsuario = validarSessao()
+    alert(idJogador)
 
     console.log(idUsuario)
-    fetch("/jogadores/cadastrarJogador", {
+    fetch("/timeCriado/cadastrar", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -144,3 +133,4 @@ function cadastrarJogador(nomeJogador, idJogador) {
 
     return false;
 }
+

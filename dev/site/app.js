@@ -10,9 +10,11 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
+var jogadoresRouter = require("./src/routes/jogadores");
+var timeRouter = require("./src/routes/times");
 var avisosRouter = require("./src/routes/avisos");
 var medidasRouter = require("./src/routes/medidas");
-var jogadoresRouter = require("./src/routes/jogadores");
+var timeCriadoRouter = require("./src/routes/timeCriado");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -23,8 +25,10 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/avisos", avisosRouter);
+app.use("/times", timeRouter);
 app.use("/medidas", medidasRouter)
 app.use("/jogadores", jogadoresRouter)
+app.use("/timeCriado", timeCriadoRouter)
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

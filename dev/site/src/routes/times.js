@@ -1,28 +1,28 @@
 var express = require("express");
 var router = express.Router();
 
-var jogadorController = require("../controllers/jogadorController");
+var timeController = require("../controllers/timeController");
 
 router.get("/", function (req, res) {
-    jogadorController.testar(req, res);
+    timeController.testar(req, res);
 });
 
 router.get("/listar", function (req, res) {
-    jogadorController.listar(req, res);
+    timeController.listar(req, res);
 });
 
 
 router.post("/cadastrar", function (req, res) {
-    jogadorController.cadastrar(req, res);
+    timeController.cadastrar(req, res);
 })
 
 router.post("/autenticar", function (req, res) {
-    jogadorController.entrar(req, res);
+    timeController.entrar(req, res);
 });
 
 
 router.get("/verificar", function (req, res) {
-    jogadorController.verificar(req, res);
+    timeController.verificar(req, res);
 });
 
 module.exports = router;

@@ -1,4 +1,4 @@
-var jogadorModel = require("../models/jogadorModel");
+var timeCriadoModel = require("../models/timeCriadoModel");
 console.log("entramos na controller")
 var sessoes = [];
 
@@ -8,7 +8,7 @@ function testar(req, res) {
 }
 
 function listar(req, res) {
-    jogadorModel.listar()
+    timeCriadoModel.listar()
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -27,18 +27,18 @@ function listar(req, res) {
 
 
 function cadastrar(req, res) {
-
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nomeJogador = req.body.nomeServer;
-    var overhall = req.body.overhallServer;
-    var imgRosto = req.body.imgRostoServer
-    var img = req.body.imgServer
-    var salario = req.body.salarioServer
-    var idade = req.body.idadeServer
-    var fk = req.body.fkServer
+    var nomeJogador = req.body.nomeJogadorServer;
+    var idJogador = req.body.IdJogadoServer;
+    var idUsuario = req.body.idUsuarioServer
+
+    console.log(nomeJogador);
+    console.log(idJogador);
+    console.log(idUsuario);
+    // Faça as validações dos valores
 
 
-    jogadorModel.cadastrar(nomeJogador, overhall, imgRosto, img, salario, idade, fk)
+    timeCriadoModel.cadastrar(idJogador, idJogador, nomeJogador)
         .then(
             function (resultado) {
                 res.json(resultado);

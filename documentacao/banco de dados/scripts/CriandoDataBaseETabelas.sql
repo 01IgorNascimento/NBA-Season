@@ -1,6 +1,8 @@
 create database NBA_SEASON;
 use nba_season;
- -- drop database Nba_season;
+
+ drop database Nba_season;
+ 
 create table jogador(
 	id int primary key auto_increment,
     nome varchar(125),
@@ -13,10 +15,10 @@ create table jogador(
 );
 
 alter table jogador add constraint ctJogador
-foreign key(fkTimePadrao) references timePAdrao (idJogador);
+foreign key(fkTimePadrao) references timePAdrao (id);
 
 create table timePadrao(
-	idJogador int primary key auto_increment,
+	id int primary key auto_increment,
     nome varchar (125),
     imagemLogo varchar(100)
 );
@@ -37,3 +39,4 @@ create table timeCriado(
     primary key (fkUsuario, fkJogador),
     dtCriacao datetime default current_timestamp
 );
+select * from timePadrao;

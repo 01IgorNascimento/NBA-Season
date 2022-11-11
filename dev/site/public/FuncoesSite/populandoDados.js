@@ -1,3 +1,4 @@
+
 const murray = new jogador()
 murray.id = 1
 murray.nome = "Jamal Murray"
@@ -50,13 +51,13 @@ jokic.imagem = "img/times/denverNuggets/Nikola_Jokic.jpg"
 
 var nuggetsJogadores = [murray, hyland, porterjr, gordon, jokic];
 
+
+
 const nuggets = new Time()
 nuggets.nome = "Denver Nuggets"
 nuggets.id = 1
 nuggets.logo = "img/times/denverNuggets/Denver-Nuggets-Logo.png"
 nuggets.listaJogadores = nuggetsJogadores
-
-
 
 const steph = new jogador()
 steph.id = 6
@@ -116,8 +117,7 @@ warriors.id = 2
 warriors.logo = "img/times/warriors/logoWarrios.png"
 warriors.listaJogadores = warriorsJogadores
 
-
-var listaTodosTimes = [nuggets, warriors]
+var listaTodosTimes = [warriors, nuggets]
 var timeEscolhido = nuggets
 timeEscolhido.listaJogadores
 
@@ -126,3 +126,19 @@ var jogadoresEscolhidos = []
 
 var contadorJogadores = 0
 
+function PopulaFk(nomeTime, fk) {
+    console.log(listaTodosTimes)
+    for (var x = 0; x < listaTodosTimes.length; x++) {
+        console.log("Nome Passado: " + nomeTime + "time da vez: " + listaTodosTimes[x])
+        if (nomeTime == listaTodosTimes[x]) {
+            for (var y = 0; y < listaTodosTimes[x].listaJogadores.length; y++) {
+                console.log(listaTodosTimes[x].listaJogadores[y].fkTime)
+                listaTodosTimes[x].listaJogadores[y].fkTime = fk
+            }
+        }
+    }
+}
+
+for (var x = 0; x < listaTodosTimes.length; x++) {
+    PopulaFk(listaTodosTimes[x], listaTodosTimes[x].id)
+}
