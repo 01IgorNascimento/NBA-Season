@@ -10,7 +10,8 @@ function CadastraTime(time) {
         },
         body: JSON.stringify({
             nomeTimeServer: time.nome,
-            logoTimeServer: time.logo
+            logoTimeServer: time.logo,
+            idTimeServer: time.id
         })
     }).then(function (resposta) {
 
@@ -33,9 +34,12 @@ function verificar() {
         .then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
-                    listaTodosTimes.forEach(element =>
-                        CadastraTime(element)
-                    );
+                    for (var x = 0; x < listaTodosTimes.length; x++) {
+                        console.log(listaTodosTimes[x].nome)
+                        CadastraTime(listaTodosTimes[x])
+
+                    }
+
                     for (var x = 0; x < listaTodosTimes.length; x++) {
                         for (var y = 0; y < listaTodosTimes[x].listaJogadores.length; y++) {
                             CadastrarJogador(listaTodosTimes[x].listaJogadores[y])

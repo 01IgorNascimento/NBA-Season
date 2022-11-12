@@ -76,9 +76,10 @@ function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeTimeServer;
     var logo = req.body.logoTimeServer;
+    var id = req.body.idTimeServer;
 
     // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-    timeModel.cadastrar(nome, logo)
+    timeModel.cadastrar(id, nome, logo)
         .then(
             function (resultado) {
                 res.json(resultado);

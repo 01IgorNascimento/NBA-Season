@@ -1,9 +1,13 @@
 select timePadrao.nome, jogador.nome from jogador join timePadrao on fkTimePadrao = timePadrao.id;
 
+
+select timePadrao.nome, jogador.nome from jogador join timePadrao on timePadrao.id = fkTimePadrao;
+
 select * from jogador;
 select * from timePadrao;
 select * from timeCriado;
 select * from usuario;
+
 
 delete from timeCriado where fkUsuario =1000;
 

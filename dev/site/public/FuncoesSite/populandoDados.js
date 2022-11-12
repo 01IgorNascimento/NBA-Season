@@ -523,7 +523,7 @@ zubac.imagem = "img/times/clippers/zubac.jpg"
 var clippersJogadores = [wall, pgeorge, kleonard, morris, zubac];
 
 const clippers = new Time()
-clippers.nome = "Philadelphia 76ers"
+clippers.nome = "Los Angeles Clippers"
 clippers.id = 9
 clippers.logo = "img/times/clippers/clippers.png"
 clippers.listaJogadores = clippersJogadores
@@ -587,7 +587,10 @@ mavericks.id = 10
 mavericks.logo = "img/times/mavericks/mavericks.png"
 mavericks.listaJogadores = mavericksJogadores
 
-var listaTodosTimes = [celtics, nuggets, mavericks, lakers, clippers, heat, nets, ers, bucks, warriors]
+var listaTodosTimes = [nuggets, warriors, nets, lakers, bucks, celtics, heat, ers, clippers, mavericks]
+
+
+
 
 var timeEscolhido = nuggets
 var urlJogadoresEscolhidos = []
@@ -596,13 +599,15 @@ var jogadoresEscolhidos = []
 var contadorJogadores = 0
 
 function PopulaFk(nomeTime, fk) {
-    console.log(listaTodosTimes)
+
     for (var x = 0; x < listaTodosTimes.length; x++) {
         console.log("Nome Passado: " + nomeTime + "time da vez: " + listaTodosTimes[x])
         if (nomeTime == listaTodosTimes[x]) {
             for (var y = 0; y < listaTodosTimes[x].listaJogadores.length; y++) {
-                console.log(listaTodosTimes[x].listaJogadores[y].fkTime)
+
                 listaTodosTimes[x].listaJogadores[y].fkTime = fk
+                console.log("Fk Time: " + listaTodosTimes[x].listaJogadores[y].fkTime)
+
             }
         }
     }
@@ -611,3 +616,5 @@ function PopulaFk(nomeTime, fk) {
 for (var x = 0; x < listaTodosTimes.length; x++) {
     PopulaFk(listaTodosTimes[x], listaTodosTimes[x].id)
 }
+
+
