@@ -1,7 +1,9 @@
 var idUsuario = 0
 var jogadorRepetido = false
 
-function EscolherJogador(imagemAlvo) {
+
+
+function EscolherJogador(imagemAlvo, texto) {
 
     var select = selJogadores.value
     if (selJogadores.value == "") {
@@ -36,6 +38,8 @@ function EscolherJogador(imagemAlvo) {
                     }
                 }
             }
+            texto.innerHTML = " - " + jogadorCadastrado.nome
+
             jogadoresEscolhidos.push(jogadorCadastrado)
             cadastrarTimeCriado(jogadorCadastrado.nome, jogadorCadastrado.id, sessionStorage.ID_USUARIO)
             if (contadorJogadores == 5) {

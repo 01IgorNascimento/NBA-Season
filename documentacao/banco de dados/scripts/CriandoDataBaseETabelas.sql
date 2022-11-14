@@ -1,7 +1,7 @@
 create database NBA_SEASON;
 use nba_season;
 
-  -- drop database Nba_season;
+ drop database Nba_season;
  
 create table jogador(
 	id int primary key,

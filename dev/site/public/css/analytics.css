@@ -1,0 +1,39 @@
+#caixaOpcoes {
+
+    padding: 170px 0px 0px 0px;
+}
+
+#caixaOpcoes span {
+
+    padding: 0px 30px 0px 120px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#caixaOpcoes span button {
+    font-size: 30px;
+    border-radius: 20px;
+    width: 250px;
+    height: 70px;
+    z-index: 2;
+}
+
+#caixaOpcoes span button :hover {
+    cursor: pointer;
+}
+
+#caixaOpcoes {}
+
+
+#tituloAnalytics {
+    margin-top: 20px;
+    font-size: 35pt;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #006bb7;
+
+    text-shadow:
+        -1px -1px 0px rgb(0, 0, 0),
+        -1px 1px 0px rgb(0, 0, 0),
+        1px -1px 0px rgb(0, 0, 0),
+        1px 0px 0px rgb(0, 0, 0);
+}

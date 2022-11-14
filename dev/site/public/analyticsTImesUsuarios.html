@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/dramTeam.css">
+    <link rel="stylesheet" href="css/tabela.css">
+    <link rel="import" href="fonts/quicksand/">
+    <title>Monte seu Dream Team</title>
+    <script src="js/funcoes.js"></script>
+</head>
+<body onload="atualizarTabela()">
+    <header class="cabecalho">
+        <div class="caixa_logo">
+            <img src="img/logoNba.png" alt="" class="logo">
+        </div>
+    </header>
+    <div id="caixaTituloTabela">
+        <h1 class="titulo" id="tituloTabela">Monte o Seu Dream Team</h1>
+    </div>
+
+    <table>
+        <thead>
+          <tr>
+  
+            <th>Sala</th>
+            <th>Nome Usuário</th>
+            <th>Média do overall do time</th>
+            <th>Jogador com maior overall</th>
+            <th>Salário total do time</th>
+          </tr>
+        <thead>
+        <tbody id="tabela">
+
+          
+
+        </tbody>
+      </table>
+        
+    
+</body>
+</html>
+
+<script>
+  var tabela = document.querySelector("#tabela")
+
+
+  function atualizarTabela() {
+        //aguardar();
+        fetch("/usuarios/listar").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    /*var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);*/
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        var tr = document.createElement("tr");
+                        var tdSala = document.createElement("td");
+                        var tdNomeUsuario = document.createElement("td");
+                        var tdMediaOverall = document.createElement("td");
+                        var tdMaiorOverall = document.createElement("td");
+                        var tdSalarioTotal = document.createElement("td");
+
+                        tdNomeUsuario.innerHTML=publicacao.nome
+                        publicacao.media = 0
+                        tdMediaOverall.innerHTML=0
+                        tdMaiorOverall.innerHTML = 0
+                        
+                        //var salario = publicacao.senha.toLocaleString('en-gb', { style: 'currency', currency: 'USD' });
+                        tdSalarioTotal.innerHTML = 0
+
+                        tr.appendChild(tdSala)
+                        tr.appendChild(tdNomeUsuario)
+                        tr.appendChild(tdMediaOverall)
+                        tr.appendChild(tdMaiorOverall)
+                        tr.appendChild(tdSalarioTotal)
+                        tabela.appendChild(tr) 
+                    }
+
+                    finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+    }
+    
+  
+</script>

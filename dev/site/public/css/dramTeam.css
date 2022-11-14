@@ -84,6 +84,15 @@
     height: 480px;
 }
 
+#posicaoJogador {
+    font-size: 15pt;
+
+}
+
+span {
+    font-size: 13pt;
+}
+
 .listaPosicoes ul li div {
     position: relative;
     margin-top: -40px;
@@ -95,7 +104,11 @@
     height: 35px;
     background-color: #000000;
     line-height: 35px;
-    opacity: 0.6;
+    opacity: 0.8;
+}
+
+.listaPosicoes ul li div span {
+    font-size: 15pt;
 }
 
 #logoTime {
@@ -120,18 +133,27 @@
     margin-top: 10px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-
 }
 
 #caixaTime select {
-
+    font-weight: bold;
     font-size: 11pt;
     position: relative;
     margin-top: 200px;
-    width: 90%;
+    width: 95%;
     font-weight: bold;
-    height: 100px;
+    height: 198px;
     overflow: hidden;
+}
+
+#caixaTime option {
+    font-weight: 200;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    padding: 10px 5px 10px 5px;
+    border: #006bb7 0.2px solid;
+
 }
 
 option {

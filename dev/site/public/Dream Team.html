@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/modal.css">
     <title>Monte seu Dream Team</title>
     <script src="js/funcoes.js"></script>
-
 </head>
 <body>
     <header class="cabecalho">
@@ -23,34 +22,36 @@
         <div class="CaixaPrincipal">
                 <div class="listaPosicoes">
                     <ul>
-                        <li onclick="EscolherJogador(imagemPG)">
-                            <img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemPG">
-                           <div style="color: rgb(255, 255, 255);">PG</div>
-                        </p>
-                        </li>
-                        <li onclick="EscolherJogador(imagemSG)">
-                            <img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemSG">
-                            <div style="color: rgb(255, 255, 255);">SG</div>                        </li>
-                        <li onclick="EscolherJogador(imagemSF)">
-                            <img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemSF">
-                            <div style="color: rgb(255, 255, 255);">SF</div>                        </li>
-                        <li onclick="EscolherJogador(imagemPF)">
-                            <img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemPF">
-                            <div style="color: rgb(255, 255, 255);">PF</div>                        </li>
-                        <li onclick="EscolherJogador(imagemC)"><img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemC">
-                            <div style="color: rgb(255, 255, 255);">C</div>                        </li>
                         <li id="caixaTime">
-                            <h2 class="tituloTime">Escolha um jogador</h2>
+                            <h2 class="tituloTime">Escolha um jogador e uma posição</h2>
                             <img src="img/times/denverNuggets/Denver-Nuggets-Logo.png" alt="" id="logoTime">
                             <select name="" id="selJogadores" multiple>
                             </select>
                         </li>
+                        <li onclick="EscolherJogador(imagemPG, posicaoJogadorPG)">
+                            <img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemPG">
+                           <div style="color: rgb(255, 255, 255);">PG<span id="posicaoJogadorPG"></span> </div>
+                        </p>
+                        </li>
+                        <li onclick="EscolherJogador(imagemSG, posicaoJogadorSG)">
+                            <img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemSG" >
+                            <div style="color: rgb(255, 255, 255);">SG<span id="posicaoJogadorSG"></span></div>                        </li>
+                        <li onclick="EscolherJogador(imagemSF, posicaoJogadorSF)">
+                            <img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemSF">
+                            <div style="color: rgb(255, 255, 255);">SF<span id="posicaoJogadorSF"></span></div>                        </li>
+                        <li onclick="EscolherJogador(imagemPF, posicaoJogadorPF)">
+                            <img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemPF">
+                            <div style="color: rgb(255, 255, 255);">PF<span id="posicaoJogadorPF"></span></div>                        </li>
+                        <li onclick="EscolherJogador(imagemC, posicaoJogadorC)"><img src="img/quadra2.webp" alt="" srcset="" class="imgLI" id="imagemC">
+                            <div style="color: rgb(255, 255, 255);">C<span id="posicaoJogadorC"></span></div>
+                        </li>
+
                     </ul>
                 </div>
         </div>
     </section>
     
-
+<br><br><br>
   <div id="popup1" class="overlay">
     <div class="popup" >
         <div id="CaixaTitulo">
@@ -65,6 +66,9 @@
   </div>
   
 <script>
+
+
+
     function abrirModalJs(){
     window.location="http://localhost:3333/Dream%20Team.html#popup1"
   }

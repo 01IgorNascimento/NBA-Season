@@ -51,8 +51,6 @@ jokic.imagem = "img/times/denverNuggets/Nikola_Jokic.jpg"
 
 var nuggetsJogadores = [murray, hyland, porterjr, gordon, jokic];
 
-
-
 const nuggets = new Time()
 nuggets.nome = "Denver Nuggets"
 nuggets.id = 1
@@ -229,7 +227,6 @@ tbryant.imagem = "img/times/lakers/tbryant.jpg"
 
 var lakersJogadores = [Westbrook, beverley, lebron, davis, tbryant];
 
-
 const lakers = new Time()
 lakers.nome = "Los Angeles Lakers"
 lakers.id = 4
@@ -268,7 +265,7 @@ middleton.imagem = "img/times/bucks/middleton.jpg"
 
 const gianis = new jogador()
 gianis.id = 24
-gianis.nome = "Giannis Antetokounmpo"
+gianis.nome = "Antetokounmpo"
 gianis.posicao = "PF"
 gianis.idade = 27
 gianis.salario = 42492492
@@ -346,7 +343,6 @@ rwillians.imagem = "img/times/celtics/rwillians.jpg"
 
 var celticsJogadores = [brogdon, smart, brown, tatum, rwillians];
 
-
 const celtics = new Time()
 celtics.nome = "Boston Celtics"
 celtics.id = 6
@@ -410,7 +406,6 @@ heat.nome = "Miami Heat"
 heat.id = 7
 heat.logo = "img/times/heat/heat.png"
 heat.listaJogadores = heatJogadores
-
 
 const maxey = new jogador()
 maxey.id = 36
@@ -548,7 +543,6 @@ hardaway.overhall = 77
 hardaway.imagemRosto = "img/times/mavericks/hardaway.png"
 hardaway.imagem = "img/times/mavericks/hardaway.jpg"
 
-
 const bullok = new jogador()
 bullok.id = 48
 bullok.nome = "Reggie Bullock"
@@ -589,9 +583,6 @@ mavericks.listaJogadores = mavericksJogadores
 
 var listaTodosTimes = [nuggets, warriors, nets, lakers, bucks, celtics, heat, ers, clippers, mavericks]
 
-
-
-
 var timeEscolhido = nuggets
 var urlJogadoresEscolhidos = []
 var jogadoresEscolhidos = []
@@ -616,5 +607,3 @@ function PopulaFk(nomeTime, fk) {
 for (var x = 0; x < listaTodosTimes.length; x++) {
     PopulaFk(listaTodosTimes[x], listaTodosTimes[x].id)
 }
-
-
