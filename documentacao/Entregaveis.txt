@@ -1,0 +1,11 @@
+A fazer:
+▪Tecnologia da Informação (Documento do Projeto)
+▪ Algoritmos : Operações Matemáticas
+▪ Socioemocional : aplicar os conceitos trabalhados em aula (detalhes a seguir)
+
+Feito
+▪ Banco de Dados : Modelo Lógico , relacionamentos 1-1 e 1-N Comandos SQL X
+▪ Algoritmos : Variáveis, Funções,  Condicionais, Repetições, Vetores.
+▪ Arq. Computadores: Métrica aplicadas aos dados (Analytics)
+▪ Pesquisa e Inovação : Contexto, Inovações, uso do GIT
+▪Tecnologia da Informação  Planejamento no Trello.

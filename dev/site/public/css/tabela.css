@@ -7,7 +7,7 @@ table {
     width: 85%;
     margin: 0 auto;
     position: relative;
-    margin-top: 20px;
+    margin-top: 15px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -78,10 +78,57 @@ table th.r {
     width: 70px;
     left: -5px;
     top: 3px;
+
+}
+
+#imgTabelaUser {
+    position: absolute;
+    width: 70px;
+    height: 50px;
+    left: -5px;
+    top: 3px;
+
 }
 
 #imgTd {
-    width: 50px;
+    width: 250px;
+    padding: 0px 0px 0px 65px;
+}
+
+#suaPosicao {
+    background-color: orange;
+}
+
+.caixaTabela {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    border: 2px solid black;
+    text-align: center;
+}
+
+#tituloTabela {
+    padding: 0px 10px 0px 100px;
+}
+
+.caixaSubTituloTabela {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20pt;
+
+}
+
+.caixaSelect {
+    margin-left: 120px;
+
+}
+
+select {
+    font-size: 15pt;
 }
 
 /* tirar essa propriedade de expandir a tabela assim que o texto aumentar*/

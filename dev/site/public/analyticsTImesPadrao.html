@@ -12,44 +12,65 @@
     <title>Monte seu Dream Team</title>
     <script src="js/funcoes.js"></script>
 </head>
-<body onload="atualizarTabela()">
+<body onload="atualizarTabelaOverall()">
     <header class="cabecalho">
         <div class="caixa_logo">
             <img src="img/logoNba.png" alt="" class="logo">
         </div>
     </header>
     <div id="caixaTituloTabela">
-        <h1 class="titulo" id="tituloTabela">Monte o Seu Dream Team</h1>
+        <h1 class="titulo" id="tituloTabela">Ranking dos Times Padrão</h1>
+        
     </div>
+    <div class="caixaSubTituloTabela">
+        <div class="caixaSelect">
+        Modo de Ordenação:
+        <select name="" id="modoOrdenacao" onchange="selecionaOrdenacao()">
+            <option value="overhall" selected>Overrall</option>
+            <option value="salario">Salário</option>
+        </select>
+        </div>
+    </div>
+    <table id="tabelaCompleta">
 
-    <table>
         <thead>
           <tr>
-  
-            <th></th>
-            <th>Nome Do Time</th>
-            <th>Média do overall do time</th>
-            <th>Jogador com maior overall</th>
-            <th>Salário total do time</th>
+            <th>Nº</th>
+            <th>Time</th>
+            <th>Média do Overall do Time</th>
+            <th>Jogador Com Maior Overall</th>
+            <th>Salário Anual do Time</th>
           </tr>
+
         <thead>
         <tbody id="tabela">
-
-          
-
         </tbody>
       </table>
-    
+
+      <br><br><br><br>
+
 </body>
 </html>
 
 <script>
-  var tabela = document.querySelector("#tabela")
+     var resultadoUsuario
+     var usuarioUsado = false
 
-
-  function atualizarTabela() {
+  function atualizarTabelaOverall() {
+    var usuarioUsado =false
         //aguardar();
-        fetch("/usuarios/listar").then(function (resposta) {
+
+
+        fetch("/usuarios/listarUmTIme", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idServer: sessionStorage.ID_USUARIO
+            })
+        })
+        .then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     /*var feed = document.getElementById("feed_container");
@@ -62,32 +83,11 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
                     
-
                     for (let i = 0; i < resposta.length; i++) {
-                        var resultado = resposta[i];
-                        var tr = document.createElement("tr");
-                        var tdNomeUsuario = document.createElement("td");
-                        var tdMediaOverall = document.createElement("td");
-                        var tdMaiorOverall = document.createElement("td");
-                        var tdSalarioTotal = document.createElement("td");
-                        var tdImagemTimeTotal = document.createElement("td");
-
-                        tdNomeUsuario.innerHTML= resultado.nome
-                        tdImagemTimeTotal.innerHTML = `<img src="${resultado.img}" alt="" id="imgTabela">`
-                        tdImagemTimeTotal.id="imgTd"
-
-                        tdMediaOverall.innerHTML=resultado.overhall
-                        tdMaiorOverall.innerHTML=resultado.jogadorNome +": "+ resultado.overhall
-                    
-                        var salario = resultado.salario.toLocaleString('en-gb', { style: 'currency', currency: 'USD' });
-                        tdSalarioTotal.innerHTML = salario
-                        tr.appendChild(tdImagemTimeTotal)
-                        tr.appendChild(tdNomeUsuario)
-                        tr.appendChild(tdMediaOverall)
-                        tr.appendChild(tdMaiorOverall)
-                        tr.appendChild(tdSalarioTotal)
-                        tabela.appendChild(tr) 
+                        resultadoUsuario = resposta[i];
+                        console.log(resultadoUsuario.nome)
                     }
+
 
                     finalizarAguardar();
                 });
@@ -98,7 +98,288 @@
             console.error(resposta);
             finalizarAguardar();
         });
-    }
+
+        fetch("/usuarios/listarTimePadrao").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    /*var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);*/
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+
+                    resposta.sort(function(a, b) {
+                        if(a.overhall < b.overhall) {
+                            return -1;
+                        } else {
+                            return true;
+                        }});
+
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    for (let i = 0; i < resposta.length; i++) {
+                        console.log(resultadoUsuario)
+                        var resultado = resposta[i];
+                        console.log(usuarioUsado)
+                        if(resultadoUsuario.mediaOverhall>resultado.mediaOverhall && usuarioUsado==false){
+                            incluirUsuario(i)
+                            usuarioUsado=true
+
+                        }
+                        
+                        var tr = document.createElement("tr");
+                        var tdRanking = document.createElement("td");
+                        var tdNomeTime = document.createElement("td");
+                        var tdMediaOverall = document.createElement("td");
+                        var tdMaiorOverall = document.createElement("td");
+                        var tdSalarioTotal = document.createElement("td");
+                        var tdImagemTimeTotal = document.createElement("td");
+   
+                        if(resultado.img!=undefined){
+                            tdNomeTime.innerHTML= `<img src="${resultado.img}" alt="" id="imgTabela"> ${resultado.nome}`
+
+                        }
+                        else{
+                            tdNomeTime.innerHTML= `<img src="img/user.png" alt="" id="imgTabelaUser"> ${resultado.nome}`
+                        }
     
-  
+                        tdNomeTime.id="imgTd"
+                        var media =  resultado.mediaOverhall
+                        media = Number(media).toFixed(0)
+                        tdMediaOverall.innerHTML=media
+                        tdMaiorOverall.innerHTML=resultado.jogadorNome +": "+ resultado.maiorOverhall
+                        if(usuarioUsado==true){
+                            tdRanking.innerHTML=i+2
+                        }   
+                        else{
+                            tdRanking.innerHTML=i+1
+
+                        }
+        
+                        var salario = resultado.salario.toLocaleString('en-gb', { style: 'currency', currency: 'USD' });
+                        tdSalarioTotal.innerHTML = salario
+                        tr.appendChild(tdRanking)
+                        tr.appendChild(tdNomeTime)
+                        tr.appendChild(tdMediaOverall)
+                        tr.appendChild(tdMaiorOverall)
+                        tr.appendChild(tdSalarioTotal)
+                        
+                        tabela.appendChild(tr) 
+
+                        if(i==9 && usuarioUsado==false){
+                            incluirUsuario(i, true)
+                        }
+                    }
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+    }
+ 
+
+  function listarTimeUsuariosSalario() {
+    var usuarioUsado =false
+        //aguardar();
+
+
+        fetch("/usuarios/listarUmTIme", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idServer: sessionStorage.ID_USUARIO
+            })
+        })
+        .then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    /*var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);*/
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos Do Salário: ", JSON.stringify(resposta));
+                    
+                    for (let i = 0; i < resposta.length; i++) {
+                        resultadoUsuario = resposta[i];
+                        console.log(resultadoUsuario.nome)
+                    }
+
+
+                    finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+
+        fetch("/usuarios/listarTimePadraoSalario").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    /*var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);*/
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+
+                    resposta.sort(function(a, b) {
+                        if(a.overhall < b.overhall) {
+                            return -1;
+                        } else {
+                            return true;
+                        }});
+
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    for (let i = 0; i < resposta.length; i++) {
+                        console.log(resultadoUsuario)
+                        var resultado = resposta[i];
+                        console.log(usuarioUsado)
+                        
+                        if(resultadoUsuario.salario>resultado.salario && usuarioUsado==false){
+                            incluirUsuario(i)
+                            usuarioUsado=true
+
+                        }
+                        
+                        var tr = document.createElement("tr");
+                        var tdRanking = document.createElement("td");
+                        var tdNomeTime = document.createElement("td");
+                        var tdMediaOverall = document.createElement("td");
+                        var tdMaiorOverall = document.createElement("td");
+                        var tdSalarioTotal = document.createElement("td");
+                        var tdImagemTimeTotal = document.createElement("td");
+   
+                        if(resultado.img!=undefined){
+                            tdNomeTime.innerHTML= `<img src="${resultado.img}" alt="" id="imgTabela"> ${resultado.nome}`
+
+                        }
+                        else{
+                            tdNomeTime.innerHTML= `<img src="img/user.png" alt="" id="imgTabelaUser"> ${resultado.nome}`
+                        }
+    
+                        tdNomeTime.id="imgTd"
+                        var media =  resultado.mediaOverhall
+                        media = Number(media).toFixed(0)
+                        tdMediaOverall.innerHTML=media
+                        tdMaiorOverall.innerHTML=resultado.jogadorNome +": "+ resultado.maiorOverhall
+                        if(usuarioUsado==true){
+                            tdRanking.innerHTML=i+2
+                        }   
+                        else{
+                            tdRanking.innerHTML=i+1
+
+                        }
+        
+                        var salario = resultado.salario.toLocaleString('en-gb', { style: 'currency', currency: 'USD' });
+                        tdSalarioTotal.innerHTML = salario
+                        tr.appendChild(tdRanking)
+                        tr.appendChild(tdNomeTime)
+                        tr.appendChild(tdMediaOverall)
+                        tr.appendChild(tdMaiorOverall)
+                        tr.appendChild(tdSalarioTotal)
+                        
+                        tabela.appendChild(tr) 
+
+                        if(i==9 && usuarioUsado==false){
+                            incluirUsuario(i, true)
+                        }
+                    }
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+    }
+ 
+
+function incluirUsuario(indice, ultimo){
+  var tabela = document.querySelector("#tabela")
+    var dadosTimesPadrao =[]
+    var dadosTimesUsuario = []
+
+    var trUsuario = document.createElement("tr");
+    var tdNomeUsuario = document.createElement("td");
+    var tdRankingUsuario = document.createElement("td");
+    var tdMediaOverallUsuario = document.createElement("td");
+    var tdMaiorOverallUsuario = document.createElement("td");
+    var tdSalarioTotalUsuario = document.createElement("td");
+    var tdImgUsuario = document.createElement("td");
+    console.log(resultadoUsuario)
+    tdNomeUsuario.innerHTML=`<img src="img/user.png" alt="" id="imgTabela">${resultadoUsuario.nome}`
+    tdNomeUsuario.id="imgTd"
+    if(ultimo==true){
+        tdRankingUsuario.innerHTML=indice+2
+
+    }
+    else{
+        tdRankingUsuario.innerHTML=indice+1
+
+    }
+    tdMediaOverallUsuario.innerHTML=Number(resultadoUsuario.mediaOverhall).toFixed(0)
+    tdMaiorOverallUsuario.innerHTML=resultadoUsuario.maiorOverhall
+    var salario = resultadoUsuario.salario.toLocaleString('en-gb', { style: 'currency', currency: 'USD' });
+    tdSalarioTotalUsuario.innerHTML=salario
+    trUsuario.appendChild(tdRankingUsuario)
+    trUsuario.appendChild(tdNomeUsuario)
+    trUsuario.appendChild(tdMediaOverallUsuario)
+    trUsuario.appendChild(tdMaiorOverallUsuario)
+    trUsuario.appendChild(tdSalarioTotalUsuario)
+    tabela.appendChild(trUsuario) 
+
+    trUsuario.id = "suaPosicao"
+
+}
+
+function selecionaOrdenacao(){
+    var recebeSelect =modoOrdenacao.value
+    if(recebeSelect=='salario'){
+        limparTabela()
+        listarTimeUsuariosSalario()
+    }
+    if(recebeSelect=='overhall'){
+        limparTabela()
+        atualizarTabelaOverall()
+    }
+}
+
+
+function limparTabela(){
+    tabelaCompleta.innerHTML=`
+    <thead>
+          <tr>
+            <th>Nº</th>
+            <th>Time</th>
+            <th>Média do Overall do Time</th>
+            <th>Jogador Com Maior Overall</th>
+            <th>Salário Anual do Time</th>
+          </tr>
+
+    </thead>
+        <tbody id="tabela">
+        </tbody>
+      `
+}
 </script>
+
+

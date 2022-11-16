@@ -13,7 +13,7 @@ function EscolherJogador(imagemAlvo, texto) {
         for (var x = 0; x < urlJogadoresEscolhidos.length; x++) {
             if (select == urlJogadoresEscolhidos[x]) {
                 jogadorRepetido = true
-                alert("Andre Wiggns ja está no seu time")
+                alert(`Este jogador já está no seu time`)
                 return
             }
             else {
@@ -137,7 +137,6 @@ function cadastrarTimeCriado(nomeJogador, idJogador, idUsuario) {
 
 function JogarNovamente(idPassado) {
     idPassado = sessionStorage.ID_USUARIO
-    alert(idPassado)
     fetch("/timeCriado/excluir", {
         method: "DELETE",
         headers: {

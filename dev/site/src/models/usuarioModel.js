@@ -1,9 +1,48 @@
 var database = require("../database/config")
-function listar() {
+function listarTimePadrao() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
-    select timePadrao.nome, jogador.nome as jogadorNome, jogador.overhall, timePadrao.imagemLogo as img, jogador.salario as salario from timePadrao
-    join jogador on jogador.fkTimePadrao = timePadrao.id;`;
+    select timePadrao.nome as nome, max(jogador.overhall) as maiorOverhall, avg(jogador.overhall) as mediaOverhall, sum(jogador.salario) as salario,   timePadrao.imagemLogo as img from timePadrao
+    join jogador on jogador.fkTimePadrao = timePadrao.id group by fkTimePadrao order by mediaOverhall desc;`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function listarUmTIme(id) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+    select usuario.nome as nome, avg(jogador.overhall) as mediaOverhall, max(jogador.overhall) as maiorOverhall, sum(jogador.salario) as salario, usuario.id
+    from usuario join timeCriado on fkUSuario = usuario.id
+    join jogador on timeCriado.nomeJogador = jogador.nome where usuario.id=${id};`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
+
+function listarTimeUsuarios() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+    select usuario.nome as nomeUsuario, avg(jogador.overhall) as mediaOverhall, max(jogador.overhall) as maior, sum(jogador.salario) as salario, usuario.id
+    from usuario join timeCriado on fkUSuario = usuario.id
+    join jogador on timeCriado.nomeJogador = jogador.nome group by usuario.nome order by mediaOverhall desc;  `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function listarTimeUsuariosSalario() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+    select usuario.nome as nomeUsuario, avg(jogador.overhall) as mediaOverhall, max(jogador.overhall) as maior, sum(jogador.salario) as salario, usuario.id
+    from usuario join timeCriado on fkUSuario = usuario.id
+    join jogador on timeCriado.nomeJogador = jogador.nome group by usuario.nome order by salario desc;  `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function listarTimePadraoSalario() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+    select timePadrao.nome as nome, max(jogador.overhall) as maiorOverhall, avg(jogador.overhall) as mediaOverhall, sum(jogador.salario) as salario,   timePadrao.imagemLogo as img from timePadrao
+    join jogador on jogador.fkTimePadrao = timePadrao.id group by fkTimePadrao order by salario desc;`;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
@@ -33,7 +72,11 @@ function cadastrar(nome, email, senha) {
 module.exports = {
     entrar,
     cadastrar,
-    listar,
+    listarTimePadrao,
+    listarTimeUsuarios,
+    listarUmTIme,
+    listarTimePadraoSalario,
+    listarTimeUsuariosSalario
 };
 
 

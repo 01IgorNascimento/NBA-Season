@@ -1,0 +1,5 @@
+PG - PG-SG
+SG - PG-SG
+SF - PG-SG-SF-PF-C
+PF - PF-SF-C
+C - C-PF

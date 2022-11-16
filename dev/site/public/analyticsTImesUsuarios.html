@@ -19,27 +19,33 @@
         </div>
     </header>
     <div id="caixaTituloTabela">
-        <h1 class="titulo" id="tituloTabela">Monte o Seu Dream Team</h1>
+        <h1 class="titulo" id="tituloTabela">Ranking dos Times Dos Usuários</h1>
+    </div>
+    <div class="caixaSubTituloTabela">
+        <div class="caixaSelect">
+        Modo de Ordenação:
+        <select name="" id="modoOrdenacao" onchange="selecionaOrdenacao()">
+            <option value="overhall" selected>Overrall</option>
+            <option value="salario">Salário</option>
+        </select>
+        </div>
     </div>
 
-    <table>
+    <table  id="tabelaCompleta">
         <thead>
           <tr>
   
-            <th>Sala</th>
+            <th>Nº</th>
             <th>Nome Usuário</th>
             <th>Média do overall do time</th>
             <th>Jogador com maior overall</th>
-            <th>Salário total do time</th>
+            <th>Salário Anual do Time</th>
           </tr>
         <thead>
         <tbody id="tabela">
-
-          
-
         </tbody>
       </table>
-        
+        <br><br><br><br>
     
 </body>
 </html>
@@ -47,10 +53,9 @@
 <script>
   var tabela = document.querySelector("#tabela")
 
-
   function atualizarTabela() {
         //aguardar();
-        fetch("/usuarios/listar").then(function (resposta) {
+        fetch("/usuarios/listarTimeUsuarios").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     /*var feed = document.getElementById("feed_container");
@@ -67,27 +72,90 @@
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
                         var tr = document.createElement("tr");
-                        var tdSala = document.createElement("td");
+            
+
+                        console.log(sessionStorage.ID_USUARIO +publicacao.id )
+                        if(sessionStorage.ID_USUARIO == publicacao.id){
+                            tr.id = "suaPosicao"
+                        }
+                        var tdRanking = document.createElement("td");
                         var tdNomeUsuario = document.createElement("td");
                         var tdMediaOverall = document.createElement("td");
                         var tdMaiorOverall = document.createElement("td");
                         var tdSalarioTotal = document.createElement("td");
 
-                        tdNomeUsuario.innerHTML=publicacao.nome
-                        publicacao.media = 0
-                        tdMediaOverall.innerHTML=0
-                        tdMaiorOverall.innerHTML = 0
+                        tdRanking.innerHTML=i+1
+                        tdNomeUsuario.innerHTML=publicacao.nomeUsuario
+                        tdMediaOverall.innerHTML=Number(publicacao.mediaOverhall).toFixed(0)
+                        tdMaiorOverall.innerHTML = Number(publicacao.maior).toFixed(0)
+                        var salario = publicacao.salario.toLocaleString('en-gb', { style: 'currency', currency: 'USD' });
+                        tdSalarioTotal.innerHTML = salario
                         
-                        //var salario = publicacao.senha.toLocaleString('en-gb', { style: 'currency', currency: 'USD' });
-                        tdSalarioTotal.innerHTML = 0
-
-                        tr.appendChild(tdSala)
+                        tr.appendChild(tdRanking)
                         tr.appendChild(tdNomeUsuario)
                         tr.appendChild(tdMediaOverall)
                         tr.appendChild(tdMaiorOverall)
                         tr.appendChild(tdSalarioTotal)
-                        tabela.appendChild(tr) 
+
+                        tabela.appendChild(tr)
+                        console.log("Tr Inseridas")
                     }
+
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+    }
+
+  function atualizarTabelaSalario() {
+    limparTabela()
+        //aguardar();
+        fetch("/usuarios/listarTimeUsuariosSalario").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    /*var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);*/
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {          
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        var tr = document.createElement("tr");
+                        
+                        if(sessionStorage.ID_USUARIO == publicacao.id){
+                            tr.id = "suaPosicao"
+                        }
+
+                        var tdRanking = document.createElement("td");
+                        var tdNomeUsuario = document.createElement("td");
+                        var tdMediaOverall = document.createElement("td");
+                        var tdMaiorOverall = document.createElement("td");
+                        var tdSalarioTotal = document.createElement("td");
+
+                        tdRanking.innerHTML=i+1
+                        tdNomeUsuario.innerHTML=publicacao.nomeUsuario
+                        tdMediaOverall.innerHTML=Number(publicacao.mediaOverhall).toFixed(0)
+                        tdMaiorOverall.innerHTML = Number(publicacao.maior).toFixed(0)
+                        var salario = publicacao.salario.toLocaleString('en-gb', { style: 'currency', currency: 'USD' });
+                        tdSalarioTotal.innerHTML = salario
+                        
+                        tr.appendChild(tdRanking)
+                        tr.appendChild(tdNomeUsuario)
+                        tr.appendChild(tdMediaOverall)
+                        tr.appendChild(tdMaiorOverall)
+                        tr.appendChild(tdSalarioTotal)
+
+                        tabela.appendChild(tr)
+                    }
+
 
                     finalizarAguardar();
                 });
@@ -100,5 +168,31 @@
         });
     }
     
+function selecionaOrdenacao(){
+    var recebeSelect =modoOrdenacao.value
+    if(recebeSelect=='salario'){
+        atualizarTabelaSalario()
+    }
+    if(recebeSelect=='overhall'){
+        atualizarTabela()
+    }
+}
+
+
+function limparTabela(){
+    tabelaCompleta.innerHTML=`
+        <thead>
+          <tr>  
+            <th>Nº</th>
+            <th>Nome Usuário</th>
+            <th>Média do overall do time</th>
+            <th>Jogador com maior overall</th>
+            <th>Salário Anual do Time</th>
+          </tr>
+        </thead>
+        <tbody id="tabela">
+        </tbody>
+      `
+}
   
 </script>

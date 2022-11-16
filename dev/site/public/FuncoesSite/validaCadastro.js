@@ -20,7 +20,6 @@ function validacaoEmail(field) {
 
         document.getElementById("msgemail").innerHTML = "";
         permissaoGmail = 1
-        alert("AAA")
     } else if (field.value == "") {
         document.getElementById("msgemail").innerHTML = "";
 
