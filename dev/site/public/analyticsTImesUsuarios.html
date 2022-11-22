@@ -51,10 +51,11 @@
 </html>
 
 <script>
-  var tabela = document.querySelector("#tabela")
 
   function atualizarTabela() {
         //aguardar();
+        var tabela = document.querySelector("#tabela")
+
         fetch("/usuarios/listarTimeUsuarios").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
@@ -113,7 +114,7 @@
     }
 
   function atualizarTabelaSalario() {
-    limparTabela()
+    var tabela = document.querySelector("#tabela")
         //aguardar();
         fetch("/usuarios/listarTimeUsuariosSalario").then(function (resposta) {
             if (resposta.ok) {
@@ -171,9 +172,12 @@
 function selecionaOrdenacao(){
     var recebeSelect =modoOrdenacao.value
     if(recebeSelect=='salario'){
+        limparTabela()
         atualizarTabelaSalario()
     }
     if(recebeSelect=='overhall'){
+        limparTabela()
+
         atualizarTabela()
     }
 }

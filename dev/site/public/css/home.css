@@ -1,0 +1,62 @@
+body {
+    background-color: black;
+}
+
+.bolaAmarela {
+    width: 500px;
+    background-color: #f0c630;
+    height: 500px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 100px;
+    left: 800px;
+}
+
+#imgHome {
+    width: 500px;
+    height: 600px;
+    position: absolute;
+    bottom: 0px;
+    left: 750px;
+}
+
+#tituloHome {
+    position: absolute;
+    left: 180px;
+    top: 40px;
+    color: #f0c630;
+    font-weight: bold;
+    font-size: 18pt;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#listaCabecalho {
+    position: absolute;
+    right: 300px;
+    top: 20px;
+    color: #fff;
+    display: flex;
+}
+
+#listaCabecalho ul {
+    display: flex;
+}
+
+#listaCabecalho li {
+    padding: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#desativado {
+    opacity: 0.5;
+}
+
+#ativado {
+    color: #f0c630;
+}
+
+#imagemKobeLogo {
+    width: 200px;
+    position: absolute;
+    left: 40px;
+}

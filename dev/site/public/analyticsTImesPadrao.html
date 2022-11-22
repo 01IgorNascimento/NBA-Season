@@ -89,7 +89,6 @@
                     }
 
 
-                    finalizarAguardar();
                 });
             } else {
                 throw ('Houve um erro na API!');
@@ -111,12 +110,6 @@
 
                 resposta.json().then(function (resposta) {
 
-                    resposta.sort(function(a, b) {
-                        if(a.overhall < b.overhall) {
-                            return -1;
-                        } else {
-                            return true;
-                        }});
 
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
                     for (let i = 0; i < resposta.length; i++) {

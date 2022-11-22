@@ -1,0 +1,11 @@
+#imgHome {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 1800px;
+    height: 713px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+    /* IE */
+}

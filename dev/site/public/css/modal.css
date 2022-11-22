@@ -72,7 +72,7 @@ h1 {
     top: 20px;
     right: 30px;
     transition: all 200ms;
-    font-size: 30px;
+    font-size: 60px;
     font-weight: bold;
     text-decoration: none;
     color: #333;
@@ -87,16 +87,49 @@ h1 {
     overflow: auto;
 }
 
-/*
-@media screen and (max-width: 700px) {
-    .box {
-        width: 70%;
-    }
 
-    .popup {
-        width: 70%;
-    }
-}*/
+
+
+
+.popupAjuda {
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 80%;
+    height: 80%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popupAjuda h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popupAjuda .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    z-index: 4;
+}
+
+.popupAjuda .close {
+    cursor: pointer;
+}
+
+
+.popupAjuda .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
 
 #imgModal {
     width: 90px;
@@ -181,4 +214,33 @@ b {
 
 #btnNovamente {
     background-color: red;
+}
+
+#imgPosicoes {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 50%;
+    height: 100%;
+}
+
+.tituloModal {
+    font-size: 20pt;
+    font-weight: bold;
+    color: #0e499d;
+}
+
+.textoModal {
+    margin-top: 20px;
+    width: 50%;
+}
+
+.textoModal span {
+    padding: 0px 0px 20px 0px;
+    font-weight: bold;
+}
+
+.textoModal ul li {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 10px 10px 10px;
 }

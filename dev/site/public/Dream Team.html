@@ -12,9 +12,19 @@
     <script src="js/funcoes.js"></script>
 </head>
 <body>
+    <span id="meuNome">IGOR NASCIMENTO</span>
+
     <header class="cabecalho">
         <div class="caixa_logo">
-            <img src="img/logoNba.png" alt="" class="logo">
+            <img src="img/talvez/kobe12.png" alt="" class="logo">
+        </div>
+        <div class="caixa_opcoes">
+            <ul>
+                <li id="ativado">Criar dream team</li>
+                <li id="desativado" >Home</li>
+                <li id="desativado" onclick="abrirLogin()">Minha conta</li>
+                <li id="desativado" onclick="abrirModalAjuda()">Ajuda ?</li>
+            </ul>
         </div>
     </header>
     <section class="principal">
@@ -64,6 +74,39 @@
       </div>
     </div>
   </div>
+
+  <div id="popupAjuda" class="overlay">
+    <div class="popupAjuda">
+        <a class="close"  onclick="fechar()">&times;</a>
+
+        <img src="img/imgModal1.png" alt="" id="imgPosicoes" srcset="">
+        <h3 class="tituloModal">Explicando Posições</h1>
+            <div class="textoModal">
+                <ul>
+                    <li>
+                        <span>1 - ARMADOR | POINT GUARD (PG)</span><br><br>
+                        É o arquiteto da jogada, é o cara que tem habilidade estratégica para criar e rever jogadas em frações de segundos.
+                    </li>
+                    <li>
+                        <span>2 - ALA ARMADOR | SHOOTING GUARD (SG)</span><br><br>
+                        Enquanto ala amador, atua como apoio ao armador. Alguns técnicos tentam, na defesa, impedir que o armador principal conduza a bola para o ataque, com a intenção de prejudicar o esquema ofensivo do adversário.
+                    </li>
+                    <li>
+                        <span>3 - ALA | SMALL FORWARD (SF)</span><br><br>
+                        O ala disputa por rebotes, assim como o ala pivô e pivô e consegue ser um jogador hibrido atuando na maioria das posições. Sua especialidade são os arremesso de média e longa distância.</li>
+                    <li>
+                        <span>4 - ALA PIVO | POWER FORWARD (PF)</span><br><br>
+                        Ele traz consigo arremessos precisos, força física e domínio dos fundamentos, que é o que normalmente determina a estratégia ofensiva de sua equipe.</li>
+                    <li>
+                        <span>5 - PIVO | CENTER (C)</span><br><br>
+                        O pivô é o jogador que atua mais próximo à cesta, tanto na defesa, quanto no ataque. Ele percorre o garrafão em forma de parábola acompanhando as jogadas e se torna uma possibilidade finalização em função de sua altura. Além disso, briga pelos rebotes seja para retomar a jogada passando a bola para as extremidades do garrafão ou convertendo o ponto.
+
+                    </li>
+                </ul>
+                
+            </div>
+    </div>
+  </div>
   
 <script>
 
@@ -74,6 +117,13 @@
   }
   function fechar(){
     window.location="http://localhost:3333/Dream%20Team.html"
+  }
+
+  function abrirModalAjuda(){
+    window.location="http://localhost:3333/Dream%20Team.html#popupAjuda"
+  }
+  function abrirLogin(){
+    window.location="http://localhost:3333/login.html"
   }
     </script>
     <script src="FuncoesSite/validaCadastro.js"></script>

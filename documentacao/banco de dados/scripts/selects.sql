@@ -1,24 +1,20 @@
     use nba_season;
-
-
-
-
-
+    
+    
+    
+    
 
 select usuario.nome as nomeUsuario, avg(jogador.overhall) as mediaOverhall, max(jogador.overhall) as maior, sum(jogador.salario) as salario, usuario.id
     from usuario join timeCriado on fkUSuario = usuario.id
     join jogador on timeCriado.nomeJogador = jogador.nome group by usuario.nome order by mediaOverhall desc ; 
     
-    
-    
-    
-    
-    
-    
 select usuario.nome as nome, avg(jogador.overhall) as mediaOverhall, max(jogador.overhall) as maior, sum(jogador.salario) as salario, usuario.id
     from usuario join timeCriado on fkUSuario = usuario.id
     join jogador on timeCriado.nomeJogador = jogador.nome group by usuario.nome order by mediaOverhall desc; 
     
+    
+    
+    select nome from jogador order by overhall desc limit 1;
     
     select usuario.nome, jogador.nome, jogador.overhall, jogador.salario from usuario join timeCriado on usuario.id = fkUsuario join jogador on jogador.id = fkJogador;
     
@@ -38,11 +34,16 @@ select usuario.nome as nomeUsuario, avg(jogador.overhall) as mediaOverhall, max(
     from usuario join timeCriado on fkUSuario = usuario.id
     join jogador on timeCriado.nomeJogador = jogador.nome group by usuario.nome order by mediaOverhall desc; 
     
-    select usuario.nome as nomeUsuario, avg(jogador.overhall) as mediaOverhall, max(jogador.overhall) as maior, sum(jogador.salario) as salario, usuario.id
+    select usuario.nome as nomeUsuario,  avg(jogador.overhall) as mediaOverhall, max(jogador.overhall) as maior, sum(jogador.salario) as salario, usuario.id
     from usuario join timeCriado on fkUSuario = usuario.id
-    join jogador on timeCriado.nomeJogador = jogador.nome group by usuario.nome order by salario desc; 
+    join jogador on timeCriado.nomeJogador = jogador.nome  group by usuario.nome order by salario desc;
 
-select * from usuario;
+    
+    
+    
+    
+
+select * from timeCriado;
 
 update usuario set nome = "Lucas Ribeiro"  where id =1005;
 
