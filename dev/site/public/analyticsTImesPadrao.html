@@ -9,17 +9,27 @@
     <link rel="stylesheet" href="css/dramTeam.css">
     <link rel="stylesheet" href="css/tabela.css">
     <link rel="import" href="fonts/quicksand/">
-    <title>Monte seu Dream Team</title>
+    <title>Analytics Time Usuarios</title>
     <script src="js/funcoes.js"></script>
 </head>
 <body onload="atualizarTabelaOverall()">
+    <span id="meuNome">IGOR NASCIMENTO</span>
+
     <header class="cabecalho">
         <div class="caixa_logo">
-            <img src="img/logoNba.png" alt="" class="logo">
+            <img src="img/talvez/kobe12.png" alt="" class="logo">
+        </div>
+        <div class="caixa_opcoes">
+            <ul>
+                <li id="ativado">Analytics</li>
+                <li id="desativado" >Home</li>
+                <li id="desativado" onclick="abrirLogin()">Minha conta</li>
+            </ul>
         </div>
     </header>
+
     <div id="caixaTituloTabela">
-        <h1 class="titulo" id="tituloTabela">Ranking dos Times Padrão</h1>
+        <h1 id="tituloAnalytics">Ranking dos Times Padrão</h1>
         
     </div>
     <div class="caixaSubTituloTabela">
@@ -112,14 +122,13 @@
 
 
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
+
                     for (let i = 0; i < resposta.length; i++) {
-                        console.log(resultadoUsuario)
                         var resultado = resposta[i];
                         console.log(usuarioUsado)
                         if(resultadoUsuario.mediaOverhall>resultado.mediaOverhall && usuarioUsado==false){
                             incluirUsuario(i)
                             usuarioUsado=true
-
                         }
                         
                         var tr = document.createElement("tr");

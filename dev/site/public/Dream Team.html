@@ -21,7 +21,7 @@
         <div class="caixa_opcoes">
             <ul>
                 <li id="ativado">Criar dream team</li>
-                <li id="desativado" >Home</li>
+                <li id="desativado" onclick="abrirIndex()">Home</li>
                 <li id="desativado" onclick="abrirLogin()">Minha conta</li>
                 <li id="desativado" onclick="abrirModalAjuda()">Ajuda ?</li>
             </ul>
@@ -117,6 +117,9 @@
   }
   function fechar(){
     window.location="http://localhost:3333/Dream%20Team.html"
+  }
+  function abrirIndex(){
+    window.location="http://localhost:3333/index.html"
   }
 
   function abrirModalAjuda(){

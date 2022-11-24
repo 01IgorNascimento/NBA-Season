@@ -43,8 +43,13 @@ body {
 }
 
 #listaCabecalho li {
+
     padding: 25px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#listaCabecalho ul:hover {
+    cursor: pointer;
 }
 
 #desativado {
@@ -59,4 +64,49 @@ body {
     width: 200px;
     position: absolute;
     left: 40px;
+}
+
+#numberKobe {
+    font-size: 200pt;
+    top: 200px;
+    left: 170px;
+    position: absolute;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url('https://s3.sa-east-1.amazonaws.com/esportudo.public/images/story/2021/01/gettyimages-102186435-4934bd5ad7673c5d0746f0515849ef826a391164.jpg');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: cover;
+}
+
+#nomeKobe {
+    color: #f0c630;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    margin-top: 400px;
+    font-size: 30pt;
+    left: 240px;
+    font-weight: bolder;
+    background-color: rgba(0, 0, 0, 20%);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#nomeKobe span {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-weight: 100;
+    color: #debf4f;
+    position: absolute;
+    left: 100px;
+
+}
+
+/* */
+
+
+#CarrouselImg {
+    width: 600px;
+    left: 200px;
+    top: 200px;
+    border-radius: 10px;
+    position: absolute;
 }

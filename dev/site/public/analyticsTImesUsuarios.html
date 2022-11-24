@@ -9,13 +9,26 @@
     <link rel="stylesheet" href="css/dramTeam.css">
     <link rel="stylesheet" href="css/tabela.css">
     <link rel="import" href="fonts/quicksand/">
-    <title>Monte seu Dream Team</title>
+    <title>Analytics Time Usuarios</title>
     <script src="js/funcoes.js"></script>
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#000000">
 </head>
 <body onload="atualizarTabela()">
+    <span id="meuNome">IGOR NASCIMENTO</span>
+
     <header class="cabecalho">
         <div class="caixa_logo">
-            <img src="img/logoNba.png" alt="" class="logo">
+            <img src="img/talvez/kobe12.png" alt="" class="logo">
+        </div>
+        <div class="caixa_opcoes">
+            <ul>
+                <li id="ativado">Analytics</li>
+                <li id="desativado" >Home</li>
+                <li id="desativado" onclick="abrirLogin()">Minha conta</li>
+            </ul>
         </div>
     </header>
     <div id="caixaTituloTabela">

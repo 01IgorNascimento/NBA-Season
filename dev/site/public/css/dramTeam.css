@@ -203,3 +203,12 @@ option {
     left: 160px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+#tituloAnalytics {
+    margin-top: 20px;
+    font-size: 25pt;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+
+}

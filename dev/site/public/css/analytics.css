@@ -14,8 +14,8 @@
     width: 350px;
     height: 100px;
     z-index: 2;
-    color: #fff;
-    border: 4px solid #d30529;
+    color: black;
+    border: 4px solid black;
 }
 
 #caixaOpcoes span button :hover {
@@ -30,12 +30,7 @@
     font-size: 35pt;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    color: #006bb7;
-    text-shadow:
-        -1px -1px 0px rgb(0, 0, 0),
-        -1px 1px 0px rgb(0, 0, 0),
-        1px -1px 0px rgb(0, 0, 0),
-        1px 0px 0px rgb(0, 0, 0);
+    color: black;
 }
 
 .imgButoon {
@@ -47,7 +42,7 @@
 }
 
 #buttonNba {
-    background-color: #0e499d;
+    background-color: #f0c630;
 
 }
 
@@ -67,4 +62,12 @@
     position: absolute;
     margin-left: -220px;
     margin-top: -90px;
+}
+
+#txtExplicacao {
+    position: absolute;
+    margin-top: 110px;
+    margin-left: -120px;
+    font-weight: bold;
+    text-align: left;
 }

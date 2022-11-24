@@ -7,22 +7,45 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/reset.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
 </head>
 <body>
     <img src="img/talvez/kobe12.png" alt="" id="imagemKobeLogo">
     <span id="tituloHome">IGOR NASCIMENTO</span>
     <div id="listaCabecalho">
         <ul>
-            <li id="ativado" onclick="RedirecionarHome()">Home</li>
-            <li id="desativado" onclick="RedirecionarMeusValores()">Meus Valores</li>
+            <li id="ativado" onclick="RedirecionarMeusValores()">Meus Valores</li>
+            <li id="desativado" onclick="RedirecionarHome()">Home</li>
             <li id="desativado" onclick="RedirecionarDreamTeam()">Criar Dream Team</li>
             <li id="desativado" onclick="RedirecionarLogin()">Entrar</li>
         </ul>
     </div>
-    <div id="numberKobe">24</div>
-    <div id="nomeKobe">Kobe. <br><span>Bryant</span> </div>
-    <div class="bolaAmarela"></div>
-    <img src="img/talvez/kobe1.png" alt="" id="imgHome">
+
+
+    <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="project-img">
+              <img src="img/carrousel/img2.jpg" alt="Foto 01">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="project-img">
+              <img src="img/carrousel/img1.jpg" alt="Foto 02">
+            </div>
+          </div>
+        
+        </div>
+      
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="FuncoesSite/swiper.js"></script>
 </body>
 </html>
 

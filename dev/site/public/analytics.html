@@ -11,26 +11,43 @@
     <link rel="stylesheet" href="css/analytics.css">
 
     <link rel="import" href="fonts/quicksand/">
-    <title>Monte seu Dream Team</title>
+    <title>Analytics</title>
     <script src="js/funcoes.js"></script>
 </head>
 <body>
+    <span id="meuNome">IGOR NASCIMENTO</span>
+
     <header class="cabecalho">
         <div class="caixa_logo">
-            <img src="img/logoNba.png" alt="" class="logo">
+            <img src="img/talvez/kobe12.png" alt="" class="logo">
         </div>
-
+        <div class="caixa_opcoes">
+            <ul>
+                <li id="ativado">Analytics</li>
+                <li id="desativado" >Home</li>
+                <li id="desativado" onclick="abrirLogin()">Minha conta</li>
+            </ul>
+        </div>
     </header>
 
     <div id="caixaTituloTabela">
         <div id="caixaAnalytics">
-            <h1 id="tituloAnalytics" id="tituloTabela">Estatísticas</h1>
+            <h1 id="tituloAnalytics">Estatísticas</h1>
         </div>
 
         <div id="caixaOpcoes">
-            <span><button onclick="RedirecionamentoTimesPadrao()" id="buttonNba">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="img/logoNba2.png" alt="" class="imgButoon"> Times Padrão</button> </span>
-            <span><button onclick="RedirecionamentoUsuario()" id="buttonNba">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="img/userWhite.png" alt="" class="imgButoon">Times Usuário</button></span>
-            <span><button onclick="RedirecionamentoCopa()" id="buttonCopa">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="img/tacaCopa2.webp" alt="" class="imgButoon" id="imgCopa"><img src="img/tacaCopa4.png" alt="" id="imgCopa2"></button></span>
+            <span> 
+                <span id="txtExplicacao">Clique aqui para saber a comparação de <br> seu time com os times da liga.</span>  
+                <button onclick="RedirecionamentoTimesPadrao()" id="buttonNba">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="img/logoNba2.png" alt="" class="imgButoon"> Times Padrão</button>
+            </span>
+            <span>
+                <span id="txtExplicacao">Clique aqui para saber a comparação de <br> seu time com os times dos outros usuários.</span>
+                <button onclick="RedirecionamentoUsuario()" id="buttonNba">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="img/user.png" alt="" class="imgButoon">Times Usuário</button>
+            </span>
+            <span>
+                <span id="txtExplicacao">Clique aqui para saber a comparação de <br> seu time com os times da copa do mundo.</span>
+                <button onclick="RedirecionamentoCopa()" id="buttonCopa">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="img/tacaCopa2.webp" alt="" class="imgButoon" id="imgCopa"><img src="img/tacaCopa4.png" alt="" id="imgCopa2"></button>
+            </span>
         </div>
     </div>
 </body>
