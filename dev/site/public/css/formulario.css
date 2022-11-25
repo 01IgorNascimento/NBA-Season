@@ -37,14 +37,14 @@
 
 .titulo img {
     margin-top: 20px;
-    margin-left: -25px;
+    margin-left: -55px;
     height: 100px;
-    width: 120px;
+    width: 200px;
 
 }
 
 .titulo h1 {
-    color: #0e499d;
+    color: #000000;
     font-size: 20pt;
     margin-left: 20px;
     font-family: Arial, Helvetica, sans-serif;
@@ -64,12 +64,13 @@
 .caixa_titulo {
     flex-wrap: wrap;
     margin-top: 35px;
+    width: 300px;
 }
 
 .caixa_input p {
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 5px;
-    color: #002353;
+    color: #000000;
 }
 
 .caixa_input {
@@ -88,7 +89,7 @@
 }
 
 .caixa_input button {
-    background-color: #0e499d;
+    background-color: black;
     color: white;
     border: none;
     font-size: 13pt;
@@ -99,7 +100,7 @@
 }
 
 .caixa_input h3 {
-    color: #0e499d;
+    color: #000000;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 30px;
     text-align: center;
@@ -108,6 +109,11 @@
 
 #tituloBotaoLogin {
     text-decoration: underline;
+    color: #000000;
+}
+
+#tituloBotaoLogin :hover {
+    cursor: pointer;
 }
 
 .div_caixa_imagem h1 {
@@ -145,6 +151,7 @@
 
 #caixa_titulo_login {
     margin-top: 100px;
+    width: 400px;
 }
 
 #titulo_login img {

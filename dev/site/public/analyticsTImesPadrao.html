@@ -22,8 +22,8 @@
         <div class="caixa_opcoes">
             <ul>
                 <li id="ativado">Analytics</li>
-                <li id="desativado" >Home</li>
-                <li id="desativado" onclick="abrirLogin()">Minha conta</li>
+                <li id="desativado" onclick="RedirecionarHome()">Home</li>
+                <li id="desativado" onclick="RedirecionarLogin()">Minha conta</li>
             </ul>
         </div>
     </header>
@@ -65,6 +65,14 @@
 <script>
      var resultadoUsuario
      var usuarioUsado = false
+
+     function RedirecionarHome(){
+        window.location="http://localhost:3333/index.html"
+    }
+    
+    function RedirecionarLogin(){
+        window.location="http://localhost:3333/login.html"
+    }
 
   function atualizarTabelaOverall() {
     var usuarioUsado =false

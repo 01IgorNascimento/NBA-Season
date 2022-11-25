@@ -24,8 +24,8 @@
         <div class="caixa_opcoes">
             <ul>
                 <li id="ativado">Analytics</li>
-                <li id="desativado" >Home</li>
-                <li id="desativado" onclick="abrirLogin()">Minha conta</li>
+                <li id="desativado" onclick="RedirecionarHome()">Home</li>
+                <li id="desativado" onclick="RedirecionarLogin()">Minha conta</li>
             </ul>
         </div>
     </header>
@@ -63,5 +63,12 @@
     function RedirecionamentoCopa(){
         window.location="http://127.0.0.1:5501/public/analyticsTImesUsuarios.html"
     }
+
+    function RedirecionarHome(){
+        window.location="http://localhost:3333/index.html"
+    }
     
+    function RedirecionarLogin(){
+        window.location="http://localhost:3333/login.html"
+    }
 </script>
