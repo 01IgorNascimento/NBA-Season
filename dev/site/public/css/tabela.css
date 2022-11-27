@@ -131,4 +131,19 @@ select {
     font-size: 15pt;
 }
 
+#estatisticasFinais {
+    position: absolute;
+    width: 200px;
+    height: 30px;
+    background-color: #356bb7;
+    top: 200px;
+    right: 120px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#estatisticasFinais:hover {
+    cursor: pointer;
+}
+
 /* tirar essa propriedade de expandir a tabela assim que o texto aumentar*/

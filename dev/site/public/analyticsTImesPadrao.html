@@ -11,6 +11,7 @@
     <link rel="import" href="fonts/quicksand/">
     <title>Analytics Time Usuarios</title>
     <script src="js/funcoes.js"></script>
+    <link rel="stylesheet" href="css/pdf.css">
 </head>
 <body onload="atualizarTabelaOverall()">
     <span id="meuNome">IGOR NASCIMENTO</span>
@@ -58,10 +59,39 @@
       </table>
 
       <br><br><br><br>
+      <button id="estatisticasFinais" onclick="gerarPDF()">Estatísticas Finais</button>
+
+
+
+
+
+
+
+      <div id="titulo">NOME USUÁRIO</div>
+    <div id="subTitulo1" class="subTitulo">DADOS DO SEU TIME</div>
+    <div id="subTitulo2" class="subTitulo">Dados da Liga No Geral</div>
+
+    <div id="listaDadosUsuario1" class="listaDadosUsuario">
+        <p> <b>-</b> O seu time foi o 7 a ser criado nesse site</p>
+        <p> <b>-</b> 4 jogadores possuem um Overrall maior que o seu melhor jogador: <br> Stephen Curry, Antetokumpo, Lebron James e etc...</p>
+        <p> <b>-</b> Seu time tem 4 pontos de média de overall a menos que a combinação <br> de jogadores mais forte possível, e é $90.000 mais barato que a <br> combinação mais cara de jogadores</p>
+    </div>
+
+    <div id="listaDadosUsuario2" class="listaDadosUsuario">
+        <p> <b>-</b> O Jogador que criou o time mais forte da liga foi: Lucas Ribeiro, com uma <br> incrível média de 96 de overall</p>
+        <p> <b>-</b> O Jogador que criou o time mais caro da liga foi: João Vitor, <br> com um salário total de US$138,456,872.00</p>
+        <p> <b>-</b> O usuário que montou o time com a menor média de idade é o: Andreas, <br> com uma média de 27 anos.</p>
+    </div>
+
 
 </body>
 </html>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+<script src="FuncoesSite/imagensJS/imagem.js"></script>
+<script src="FuncoesSite/imagensJS/imagem2.js"></script>
+<script src="FuncoesSite/imagensJS/imagem3.js"></script>
+<script src="FuncoesSite/pdf.js"></script>
 <script>
      var resultadoUsuario
      var usuarioUsado = false

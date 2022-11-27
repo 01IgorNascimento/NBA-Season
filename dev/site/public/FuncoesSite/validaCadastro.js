@@ -14,11 +14,11 @@ function validacaoEmail(campo) {
         permissaoGmail = 1
         msgemail.innerHTML = ""
     }
-    if (campo.value == "") {
-        msgemail.innerHTML = ""
-    }
     else {
         msgemail.innerHTML = "<font color='red'>Digite um E-Mail válido</font>"
+    }
+    if (campo.value == "") {
+        msgemail.innerHTML = ""
     }
 }
 

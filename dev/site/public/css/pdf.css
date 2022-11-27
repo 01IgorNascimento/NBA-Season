@@ -1,0 +1,23 @@
+#titulo {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-size: 27pt;
+    font-weight: bold;
+}
+
+.subTitulo {
+    font-size: 22pt;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+.listaDadosUsuario {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    list-style: none;
+    font-size: 17pt;
+
+}
+
+.listaDadosUsuario p {
+    line-height: 35px;
+}
