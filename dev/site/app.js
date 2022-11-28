@@ -13,6 +13,7 @@ var usuarioRouter = require("./src/routes/usuarios");
 var jogadoresRouter = require("./src/routes/jogadores");
 var timeRouter = require("./src/routes/times");
 var avisosRouter = require("./src/routes/avisos");
+var pdfsRouter = require("./src/routes/pdfs");
 var medidasRouter = require("./src/routes/medidas");
 var timeCriadoRouter = require("./src/routes/timeCriado");
 
@@ -29,6 +30,7 @@ app.use("/times", timeRouter);
 app.use("/medidas", medidasRouter)
 app.use("/jogadores", jogadoresRouter)
 app.use("/timeCriado", timeCriadoRouter)
+app.use("/pdfs", pdfsRouter)
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

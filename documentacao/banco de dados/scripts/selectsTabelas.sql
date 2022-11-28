@@ -10,15 +10,15 @@ select usuario.nome as nomeUsuario, avg(jogador.overhall) as mediaOverhall, max(
     
     
     
-select usuario.nome as nome, usuario.dtCadastro, avg(jogador.idade), avg(jogador.overhall) as mediaOverhall, max(jogador.overhall) as maior, sum(jogador.salario) as salario, usuario.id
+select usuario.nome as nome, avg(jogador.idade), avg(jogador.overhall) as mediaOverhall, max(jogador.overhall) as maior, sum(jogador.salario) as salario, usuario.id
     from usuario join timeCriado on fkUSuario = usuario.id
-    join jogador on timeCriado.nomeJogador = jogador.nome  where usuario.id =1000 group by usuario.nome order by mediaOverhall desc; 
+    join jogador on timeCriado.nomeJogador = jogador.nome group by usuario.nome order by mediaOverhall desc; 
     
-    select usuario.nome, max(jogador.overhall) from jogador join timeCriado on jogador.id = timeCriado.fkJogador join usuario on timeCriado.fkUsuario = usuario.id group by usuario.nome;
+    select usuario.nome, avg(jogador.idade) from jogador join timeCriado on jogador.id = timeCriado.fkJogador join usuario on timeCriado.fkUsuario = usuario.id group by usuario.nome;
     
     select usuario.nome, jogador.nome, jogador.overhall, jogador.salario from usuario join timeCriado on usuario.id = fkUsuario join jogador on jogador.id = fkJogador;
     
-    select * from usuario;
+    select * from jogador;
     
     
     

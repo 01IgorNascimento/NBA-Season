@@ -4,6 +4,8 @@ function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
     var id = sessionStorage.ID_USUARIO;
+    var dtCadastro = sessionStorage.DTCADASTRO_USUARIO;
+    console.log(dtCadastro)
     return id
 }
 

@@ -66,23 +66,25 @@
 
 
 
+      <div id="caixa">
 
+ 
       <div id="titulo">NOME USUÁRIO</div>
     <div id="subTitulo1" class="subTitulo">DADOS DO SEU TIME</div>
     <div id="subTitulo2" class="subTitulo">Dados da Liga No Geral</div>
 
     <div id="listaDadosUsuario1" class="listaDadosUsuario">
-        <p> <b>-</b> O seu time foi o 7 a ser criado nesse site</p>
-        <p> <b>-</b> 4 jogadores possuem um Overrall maior que o seu melhor jogador: <br> Stephen Curry, Antetokumpo, Lebron James e etc...</p>
-        <p> <b>-</b> Seu time tem 4 pontos de média de overall a menos que a combinação <br> de jogadores mais forte possível, e é $90.000 mais barato que a <br> combinação mais cara de jogadores</p>
+        <p id="dados1"> <b>-</b> O seu time foi o 7 a ser criado nesse site</p>
+        <p id="dados2"> <b>-</b> 4 jogadores possuem um Overrall maior que o seu melhor jogador: <br> Stephen Curry, Antetokumpo, Lebron James e etc...</p>
+        <p id="dados3"> <b>-</b> Seu time tem 4 pontos de média de overall a menos que a combinação <br> de jogadores mais forte possível, e é $90.000 mais barato que a <br> combinação mais cara de jogadores</p>
     </div>
 
     <div id="listaDadosUsuario2" class="listaDadosUsuario">
-        <p> <b>-</b> O Jogador que criou o time mais forte da liga foi: Lucas Ribeiro, com uma <br> incrível média de 96 de overall</p>
-        <p> <b>-</b> O Jogador que criou o time mais caro da liga foi: João Vitor, <br> com um salário total de US$138,456,872.00</p>
-        <p> <b>-</b> O usuário que montou o time com a menor média de idade é o: Andreas, <br> com uma média de 27 anos.</p>
+        <p id="dados4"> <b>-</b> O Usuário que criou o time mais forte da liga foi: Lucas Ribeiro, com uma <br> incrível média de 96 de overall</p>
+        <p id="dados5"> <b>-</b> O Usuário que criou o time mais caro da liga foi: João Vitor, <br> com um salário total de US$138,456,872.00</p>
+        <p id="dados6"> <b>-</b></p>
     </div>
-
+</div>
 
 </body>
 </html>
@@ -93,6 +95,19 @@
 <script src="FuncoesSite/imagensJS/imagem3.js"></script>
 <script src="FuncoesSite/pdf.js"></script>
 <script>
+        var h1 = document.querySelector('#titulo')
+    var caixa = document.querySelector('#caixa')
+    var listaUsuario1 = document.querySelector('#listaDadosUsuario1')
+    var listaUsuario2 = document.querySelector('#listaDadosUsuario2')
+    var sub1 = document.querySelector('#subTitulo1')
+    var sub2 = document.querySelector('#subTitulo2')
+    h1.style.display = 'none'
+    sub1.style.display = 'none'
+    sub2.style.display = 'none'
+    listaUsuario1.style.display = 'none'
+    listaUsuario2.style.display = 'none'
+
+    caixa.style.display = 'none'
      var resultadoUsuario
      var usuarioUsado = false
 
@@ -129,11 +144,11 @@
                 }
 
                 resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    //console.log("Dados recebidos: ", JSON.stringify(resposta));
                     
                     for (let i = 0; i < resposta.length; i++) {
                         resultadoUsuario = resposta[i];
-                        console.log(resultadoUsuario.nome)
+                        //console.log(resultadoUsuario.nome)
                     }
 
 
@@ -159,11 +174,11 @@
                 resposta.json().then(function (resposta) {
 
 
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    //console.log("Dados recebidos: ", JSON.stringify(resposta));
 
                     for (let i = 0; i < resposta.length; i++) {
                         var resultado = resposta[i];
-                        console.log(usuarioUsado)
+                        //console.log(usuarioUsado)
                         if(resultadoUsuario.mediaOverhall>resultado.mediaOverhall && usuarioUsado==false){
                             incluirUsuario(i)
                             usuarioUsado=true
@@ -218,7 +233,7 @@
                 throw ('Houve um erro na API!');
             }
         }).catch(function (resposta) {
-            console.error(resposta);
+            //console.error(resposta);
             finalizarAguardar();
         });
     }
@@ -249,11 +264,11 @@
                 }
 
                 resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos Do Salário: ", JSON.stringify(resposta));
+                    //console.log("Dados recebidos Do Salário: ", JSON.stringify(resposta));
                     
                     for (let i = 0; i < resposta.length; i++) {
                         resultadoUsuario = resposta[i];
-                        console.log(resultadoUsuario.nome)
+                        //console.log(resultadoUsuario.nome)
                     }
 
 
@@ -263,7 +278,7 @@
                 throw ('Houve um erro na API!');
             }
         }).catch(function (resposta) {
-            console.error(resposta);
+            //console.error(resposta);
             finalizarAguardar();
         });
 
@@ -286,11 +301,11 @@
                             return true;
                         }});
 
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    //console.log("Dados recebidos: ", JSON.stringify(resposta));
                     for (let i = 0; i < resposta.length; i++) {
                         console.log(resultadoUsuario)
                         var resultado = resposta[i];
-                        console.log(usuarioUsado)
+                        //console.log(usuarioUsado)
                         
                         if(resultadoUsuario.salario>resultado.salario && usuarioUsado==false){
                             incluirUsuario(i)
@@ -365,7 +380,7 @@ function incluirUsuario(indice, ultimo){
     var tdMaiorOverallUsuario = document.createElement("td");
     var tdSalarioTotalUsuario = document.createElement("td");
     var tdImgUsuario = document.createElement("td");
-    console.log(resultadoUsuario)
+    //console.log(resultadoUsuario)
     tdNomeUsuario.innerHTML=`<img src="img/user.png" alt="" id="imgTabela">${resultadoUsuario.nome}`
     tdNomeUsuario.id="imgTd"
     if(ultimo==true){

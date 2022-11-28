@@ -8,6 +8,7 @@ create table jogador(
     nome varchar(125),
 	idade int,
     salario double,
+    posicao varchar(15),
     overhall int,
     imagemRosto varchar(100),
     imagem varchar(100),
@@ -24,7 +25,8 @@ create table usuario(
 	id int primary key auto_increment,
     nome varchar(125),
     email varchar(125),
-    senha varchar(125)
+    senha varchar(125),
+    dtCadastro datetime
 )auto_increment=1000;
 
 create table timeCriado(
@@ -37,6 +39,7 @@ create table timeCriado(
     dtCriacao datetime default current_timestamp
 );
 
+
 alter table jogador add constraint ctJogador
 foreign key(fkTimePadrao) references timePAdrao (id);
-select * from timePadrao;
+select * from usuario;

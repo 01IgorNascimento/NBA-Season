@@ -79,7 +79,8 @@ function CadastrarJogador(jogador) {
             salarioServer: jogador.salario,
             idadeServer: jogador.idade,
             fkServer: jogador.fkTime,
-            idServer: jogador.id
+            idServer: jogador.id,
+            posicaoServer: jogador.posicao
         })
     }).then(function (resposta) {
 
