@@ -5,13 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/meusValores.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/reset.css">
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-    />
+
 </head>
 <body>
     <img src="img/talvez/kobe12.png" alt="" id="imagemKobeLogo">
@@ -25,38 +22,21 @@
         </ul>
     </div>
 
-    <div class="caixaCarroucel">
       <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="project-img">
-              <img src="img/carrousel/img1.jpg" alt="Foto 01">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="project-img">
-              <img src="img/carrousel/img2.jpg" alt="Foto 01">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="project-img">
-              <img src="img/carrousel/img3.jpg" alt="Foto 02">
-            </div>
-          </div>
-        
-        </div>
-      
-      <div class="swiper-button-next" onclick="proximo()"></div>
-      <div class="swiper-button-prev" onclick="proximo()"></div>
-      <div class="swiper-pagination" onclick="proximo()"></div>
-    </div>
-    </div>
+
+     </div>
+
+     <div id="Carrosel">
+      <img src="img/carrousel/setaEsquerda.png" alt="" id="setaEsquerda" onclick="proximo()">
+      <img src="img/carrousel/setaDireita.png" alt="" id="setaDireita" onclick="proximo()">
+      <img src="img/carrousel/img1.jpg" alt="" id="backgroudCarrousel">
+     </div>
+
+    
     <div class="caixaTextoValores">
         <h1 id="tituloValores">Disciplina</h1>
         <p id="textoValores">Sua disciplina era algo completamente fora do comum, sua ética de trabalho é a única da história do esporte que se assemelha a do Michael Jordan, algo comum para os companheiros do Kobe além de ganhar jogos era de vê-lo chegando sempre sendo o primeiro a chegar e o último a sair, independente de como estivesse sua saúde física. </p>
     </div>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script src="FuncoesSite/swiper.js"></script>
 </body>
 </html>
 
@@ -65,14 +45,17 @@
     function proximo(){
         if(x==0){
           tituloValores.innerHTML= "Curiosidade"
+          backgroudCarrousel.src = "img/carrousel/img2.jpg"
           textoValores.innerHTML = "Um dos pilares do sucesso do Kobe era a sua enorme curiosidade pelo basquete, esse amor que ele tinha pelo esporte era tão grande que o consumia a ponto abdicar de tudo que fugisse do propósito de ser um dos maiores jogadores de todos os tempos."
         }
         if(x==1){
           tituloValores.innerHTML= "Ambição"
+          backgroudCarrousel.src = "img/carrousel/img3.jpg"
           textoValores.innerHTML = "Foi a sua ambição que o levou a ganhar 5 títulos da NBA e ser considerado um dos maiores jogadores da história do esporte, jogando em uma das décadas mais competitivas da história do basquete, o seu amor pelo esporte era tão grande que tudo que ele fazia era para ser um jogador de basquete melhor, usando uma frase do próprio Kobe: “Quando você sabe o que você quer, o mundo se torna a sua biblioteca” "
         }
         if(x==2){
           tituloValores.innerHTML= "Disciplina"
+          backgroudCarrousel.src = "img/carrousel/img1.jpg"
           textoValores.innerHTML = "Sua disciplina era algo completamente fora do comum, sua ética de trabalho é a única da história do esporte que se assemelha a do Michael Jordan, algo comum para os companheiros do Kobe além de ganhar jogos era de vê-lo chegando sempre sendo o primeiro a chegar e o último a sair, independente de como estivesse sua saúde física."
           x=0
         }

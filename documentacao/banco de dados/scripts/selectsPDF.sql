@@ -53,6 +53,6 @@ select * from timeCriado;
 
 
 SELECT nomeJogador, Count(*) as QtdRepeticoes FROM timeCriado
-GROUP BY fkJogador
+GROUP BY nomeJogador
 HAVING Count(*) > 1
-order by QtdRepeticoes desc;
+order by QtdRepeticoes desc limit 1;

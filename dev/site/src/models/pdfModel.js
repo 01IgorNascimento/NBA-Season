@@ -43,9 +43,9 @@ function listarMaiores(maior) {
 }
 function listarTimeMaisForte() {
     var instrucao = `
-    select usuario.nome as nome,  avg(jogador.overhall)
+    select usuario.nome as nome,  avg(jogador.overhall) as mediaOverhall
     from usuario join timeCriado on fkUSuario = usuario.id
-    join jogador on timeCriado.nomeJogador = jogador.nome group by usuario.nome order by salario desc limit 1;
+    join jogador on timeCriado.nomeJogador = jogador.nome group by usuario.nome order by mediaOverhall desc limit 1;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

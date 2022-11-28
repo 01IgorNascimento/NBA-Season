@@ -49,7 +49,7 @@
             <th>Nº</th>
             <th>Time</th>
             <th>Média do Overall do Time</th>
-            <th>Jogador Com Maior Overall</th>
+            <th>Overall do maior jogador</th>
             <th>Salário Anual do Time</th>
           </tr>
 
@@ -204,7 +204,7 @@
                         var media =  resultado.mediaOverhall
                         media = Number(media).toFixed(0)
                         tdMediaOverall.innerHTML=media
-                        tdMaiorOverall.innerHTML=resultado.jogadorNome +": "+ resultado.maiorOverhall
+                        tdMaiorOverall.innerHTML=resultado.maiorOverhall
                         if(usuarioUsado==true){
                             tdRanking.innerHTML=i+2
                         }   
@@ -426,7 +426,7 @@ function limparTabela(){
             <th>Nº</th>
             <th>Time</th>
             <th>Média do Overall do Time</th>
-            <th>Jogador Com Maior Overall</th>
+            <th>Overall do maior jogador</th>
             <th>Salário Anual do Time</th>
           </tr>
 

@@ -1,7 +1,4 @@
-    use nba_season;
-    
-    
-    
+use nba_season;
     
 
 select usuario.nome as nomeUsuario, avg(jogador.overhall) as mediaOverhall, max(jogador.overhall) as maior, sum(jogador.salario) as salario, usuario.id
@@ -19,6 +16,10 @@ select usuario.nome as nome, usuario.dtCadastro, avg(jogador.idade), avg(jogador
     select usuario.nome, jogador.nome, jogador.overhall, jogador.salario from usuario join timeCriado on usuario.id = fkUsuario join jogador on jogador.id = fkJogador;
     
     select * from usuario;
+    
+       select usuario.nome as nome,  avg(jogador.overhall) as mediaOverhall
+    from usuario join timeCriado on fkUSuario = usuario.id
+    join jogador on timeCriado.nomeJogador = jogador.nome group by usuario.nome order by mediaOverhall desc limit 1;
     
     
     

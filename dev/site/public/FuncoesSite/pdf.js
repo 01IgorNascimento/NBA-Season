@@ -134,6 +134,8 @@ function Dados3() {
     var usuarioMediaOverhall = Number(usuarioDaVez.mediaOverhall).toFixed(0)
     var usuarioSalario = Number(usuarioDaVez.salario)
 
+
+
     if (usuarioMediaOverhall < 96) {
         axPontosMediaOverhall = 96 - usuarioMediaOverhall
         string3Overhall = `Seu time tem ${axPontosMediaOverhall} pontos de média de overall a menos que a combinação <br>
@@ -173,7 +175,11 @@ function Dados4() {
                     //console.log("Dados recebidos: ", JSON.stringify(resposta));
 
                     for (let i = 0; i < resposta.length; i++) {
-                        nomeUsuarioMaisForte = `O Usuário que criou o time mais forte da liga foi: ${resposta[i].nome},<br> com uma incrível média de 96 de overall`
+                        var nome = resposta[i].nome.toString()
+                        nome = nome.split(' ').slice(0, 2).join(' ')
+                        console.log(typeof (nome))
+                        console.log(nome)
+                        nomeUsuarioMaisForte = `O Usuário que criou o time mais forte da liga foi: ${nome}, com <br>  uma incrível média de ${Number(resposta[i].mediaOverhall).toFixed()} de overall`
                     }
                     Dados5pt1()
                 });
@@ -270,7 +276,7 @@ function Dados6() {
 
                     for (let i = 0; i < resposta.length; i++) {
                         console.log(resposta[i])
-                        jogadorMaisEscolhido = `O Jogador que mais foi escolhido pelos usuários, foi: ${resposta[i].nomeJogador}, ${resposta[i].QtdRepeticoes}<br> usuários escolheram ele para o seu time`
+                        jogadorMaisEscolhido = `O Jogador que mais foi escolhido pelos usuários, foi: ${resposta[i].nomeJogador}, ${resposta[i].QtdRepeticoes}<br> usuários escolheram ele para seus times`
                     }
                     AtualizarDados()
                 });
@@ -308,18 +314,12 @@ function AtualizarDados() {
     var listaUsuario2 = document.querySelector('#listaDadosUsuario2')
     var sub1 = document.querySelector('#subTitulo1')
     var sub2 = document.querySelector('#subTitulo2')
-    h1.style.display = 'none'
-    sub1.style.display = 'none'
-    sub2.style.display = 'none'
-    listaUsuario1.style.display = 'none'
-    listaUsuario2.style.display = 'none'
 
-    caixa.style.display = 'none'
 
 
     var doc = new jsPDF()
     doc.setFillColor(0, 0, 0)
-    doc.rect(0, 0, 220, 50, 'F')
+    doc.rect(-100, -10, 400, 60, 'F')
     doc.setTextColor(255, 255, 255)
     doc.fromHTML(h1, 75, 18)
     doc.fromHTML(sub1, 55, 65)

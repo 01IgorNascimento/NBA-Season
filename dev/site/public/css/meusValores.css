@@ -16,19 +16,12 @@ img {
 
 .swiper {
     margin-top: 190px;
-    left: -300px;
     height: 450px;
     width: 750px;
-    border-radius: 10px;
 
 }
 
-.swiper-slide {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 #imagemKobeLogo {
     margin-top: -190px;
@@ -52,5 +45,44 @@ img {
     font-size: 20pt;
     margin-top: 30px;
     font-family: 'Arial Narrow', Arial, sans-serif;
-    line-height: 32px;
+    line-height: 36px;
+}
+
+
+#Carrosel {
+    width: 740px;
+    height: 450px;
+    position: absolute;
+    margin-top: -450px;
+    margin-left: 90px;
+    border-radius: 10px;
+}
+
+#backgroudCarrousel {
+    border-radius: 10px;
+}
+
+#setaEsquerda {
+    position: absolute;
+    width: 100px;
+    top: 200px;
+    z-index: 2;
+}
+
+#setaEsquerda :hover {
+    z-index: 2;
+    cursor: pointer;
+}
+
+#setaDireita {
+    position: absolute;
+    width: 100px;
+    top: 200px;
+    z-index: 2;
+    margin-left: 640px;
+}
+
+#setaDireita :hover {
+    z-index: 2;
+    cursor: pointer;
 }
