@@ -91,7 +91,7 @@ function maiorOverhall() {
         .then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
-                    stringMaior = "0 jogadores possuem um Overrall maior que o seu melhor jogador, <br> porque Giannis Antetokounmpo esta no seu time"
+                    stringMaior = "0 jogadores possuem o overall maior que o seu melhor jogador, <br> porque Giannis Antetokounmpo esta no seu time"
                     Dados3()
                     throw "Nenhum resultado encontrado!!";
                 }
@@ -110,10 +110,10 @@ function maiorOverhall() {
                         contMaiores++
                     }
                     if (arrayMaiores.length == 1) {
-                        stringMaior = `apenas ${contMaiores} jogador possui um Overrall maior que o seu melhor jogador: <br> ${stringAuxiliar}`
+                        stringMaior = `apenas ${contMaiores} jogador possui o overall maior que o seu melhor jogador: <br> ${stringAuxiliar}`
                     }
                     else {
-                        stringMaior = `${contMaiores} jogadores possuem um Overrall maior que o seu melhor jogador: <br> ${stringAuxiliar} e etc...`
+                        stringMaior = `${contMaiores} jogadores possuem o overall maior que o seu melhor jogador: <br> ${stringAuxiliar} e etc...`
                     }
                     Dados3()
                 });
@@ -177,6 +177,9 @@ function Dados4() {
                     for (let i = 0; i < resposta.length; i++) {
                         var nome = resposta[i].nome.toString()
                         nome = nome.split(' ').slice(0, 2).join(' ')
+                        //a primeira parte o split, ele corta todos os " " que estiver entre as palavras
+                        //a segunda parte o slice, define apartir de qual palavra que no caso é o 0, e até qual palavra, que no caso é o 2
+                        //a terceira parte é o join, define qual caractere substituira a virgula
                         console.log(typeof (nome))
                         console.log(nome)
                         nomeUsuarioMaisForte = `O Usuário que criou o time mais forte da liga foi: ${nome}, com <br>  uma incrível média de ${Number(resposta[i].mediaOverhall).toFixed()} de overall`
@@ -213,7 +216,7 @@ function Dados5pt1() {
 
                     for (let i = 0; i < resposta.length; i++) {
                         console.log(resposta[i])
-                        stringMenorIdade = `O usuário que montou o time com a menor média de idade é o: <br> ${resposta[i].nome}, média de ${Number(resposta[i].mediaIdade).toFixed(0)} anos, `
+                        stringMenorIdade = `O usuário que montou o time mais novo foi o: ${resposta[i].nome.split(' ').slice(0, 2).join(' ')},<br> média de ${Number(resposta[i].mediaIdade).toFixed(0)} anos, `
                     }
                     Dados5pt2()
                 });
@@ -245,7 +248,7 @@ function Dados5pt2() {
 
                     for (let i = 0; i < resposta.length; i++) {
                         console.log(resposta[i])
-                        stringMenorIdade += ` e quem criou o time mais <br velho > foi o ${resposta[i].nome}, média de ${Number(resposta[i].mediaIdade).toFixed(0)} anos`
+                        stringMenorIdade += ` e quem criou o time mais velho foi o ${resposta[i].nome.split(' ').slice(0, 2).join(' ')},<br> média de ${Number(resposta[i].mediaIdade).toFixed(0)} anos`
                     }
                     Dados6()
                 });
@@ -298,10 +301,15 @@ function AtualizarDados() {
     var stringNomeUsuario = sessionStorage.NOME_USUARIO
     stringNomeUsuario = stringNomeUsuario.toUpperCase()
     stringNomeUsuario = stringNomeUsuario.split(' ').slice(0, 2).join(' ');
+    //a primeira parte o split, ele corta todos os " " que estiver entre as palavras
+    //a segunda parte o slice, define apartir de qual palavra que no caso é o 0, e até qual palavra, que no caso é o 2
+    //a terceira parte é o join, define qual caractere substituira a virgula
+
+
 
 
     document.querySelector('#titulo').innerHTML = stringNomeUsuario
-    document.querySelector('#dados1').innerHTML = `<b> -</b> O seu time foi o ${ordermCadastro.cadastros} a ser criado nesse site`
+    document.querySelector('#dados1').innerHTML = `<b> -</b> O seu time foi o ${ordermCadastro.cadastros}° a ser criado nesse site`
     document.querySelector('#dados2').innerHTML = `<b> -</b> ${stringMaior} `
     document.querySelector('#dados3').innerHTML = `<b> -</b> ${string3Total} `
     document.querySelector('#dados4').innerHTML = `<b> -</b> ${nomeUsuarioMaisForte} `

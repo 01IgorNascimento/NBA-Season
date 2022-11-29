@@ -7,11 +7,59 @@
     <link rel="stylesheet" href="css//dramTeam.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="import" href="fonts/quicksand/">
-    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/modal2.css">
     <title>Monte seu Dream Team</title>
     <script src="js/funcoes.js"></script>
+    <link rel="shortcut icon" href="img/talvez/kobe11.png" type="image/x-icon">
+
 </head>
 <body>
+
+    <div id="modal" class="invisivel">
+
+        <a class="close"  onclick="fechar()">&times;</a>
+
+        <img src="img/imgModal1.png" alt="" id="imgPosicoes">
+        <h3 class="tituloModal">Explicando Posições</h3>
+
+        <div class="textoModal">
+            <ul>
+                <li>
+                    <span>1 - ARMADOR | POINT GUARD (PG)</span><br><br>
+                    É o arquiteto da jogada, é o cara que tem habilidade estratégica para criar e rever jogadas em frações de segundos.
+                </li>
+                <li>
+                    <span>2 - ALA ARMADOR | SHOOTING GUARD (SG)</span><br><br>
+                    Enquanto ala amador, atua como apoio ao armador. Alguns técnicos tentam, na defesa, impedir que o armador principal conduza a bola para o ataque, com a intenção de prejudicar o esquema ofensivo do adversário.
+                </li>
+                <li>
+                    <span>3 - ALA | SMALL FORWARD (SF)</span><br><br>
+                    O ala disputa por rebotes, assim como o ala pivô e pivô e consegue ser um jogador hibrido atuando na maioria das posições. Sua especialidade são os arremesso de média e longa distância.</li>
+                <li>
+                    <span>4 - ALA PIVO | POWER FORWARD (PF)</span><br><br>
+                    Ele traz consigo arremessos precisos, força física e domínio dos fundamentos, que é o que normalmente determina a estratégia ofensiva de sua equipe.</li>
+                <li>
+                    <span>5 - PIVO | CENTER (C)</span><br><br>
+                    O pivô é o jogador que atua mais próximo à cesta, tanto na defesa, quanto no ataque. Ele percorre o garrafão em forma de parábola acompanhando as jogadas e se torna uma possibilidade finalização em função de sua altura. Além disso, briga pelos rebotes seja para retomar a jogada passando a bola para as extremidades do garrafão ou convertendo o ponto.
+
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+
+
+    <div id="modalJogadores" class="invisivel">
+        <div id="CaixaTitulo">
+            <img src="img/logoNba2.png" alt="" srcset="" id="imgModal">
+            <h2>Dream Team</h2>
+        </div>
+        <div class="content">
+        </div>
+    </div>
+
+    <div id="corpo">
+
     <span id="meuNome">IGOR NASCIMENTO</span>
 
     <header class="cabecalho">
@@ -60,75 +108,31 @@
                 </div>
         </div>
     </section>
-    
-<br><br><br>
-  <div id="popup1" class="overlay">
-    <div class="popup" >
-        <div id="CaixaTitulo">
-            <img src="img/logoNba2.png" alt="" srcset="" id="imgModal">
-            <h2>Dream Team</h2>
-        </div>
-        <div class="caixaModal" id="caixaModal">
-        </div>
-      <div class="content">
-      </div>
-    </div>
-  </div>
+    <br><br><br><br>
 
-  <div id="popupAjuda" class="overlay">
-    <div class="popupAjuda">
-        <a class="close"  onclick="fechar()">&times;</a>
-        <!--&times; é um X  bonitinho-->
-
-        <img src="img/imgModal1.png" alt="" id="imgPosicoes">
-        <h3 class="tituloModal">Explicando Posições</h3>
-            <div class="textoModal">
-                <ul>
-                    <li>
-                        <span>1 - ARMADOR | POINT GUARD (PG)</span><br><br>
-                        É o arquiteto da jogada, é o cara que tem habilidade estratégica para criar e rever jogadas em frações de segundos.
-                    </li>
-                    <li>
-                        <span>2 - ALA ARMADOR | SHOOTING GUARD (SG)</span><br><br>
-                        Enquanto ala amador, atua como apoio ao armador. Alguns técnicos tentam, na defesa, impedir que o armador principal conduza a bola para o ataque, com a intenção de prejudicar o esquema ofensivo do adversário.
-                    </li>
-                    <li>
-                        <span>3 - ALA | SMALL FORWARD (SF)</span><br><br>
-                        O ala disputa por rebotes, assim como o ala pivô e pivô e consegue ser um jogador hibrido atuando na maioria das posições. Sua especialidade são os arremesso de média e longa distância.</li>
-                    <li>
-                        <span>4 - ALA PIVO | POWER FORWARD (PF)</span><br><br>
-                        Ele traz consigo arremessos precisos, força física e domínio dos fundamentos, que é o que normalmente determina a estratégia ofensiva de sua equipe.</li>
-                    <li>
-                        <span>5 - PIVO | CENTER (C)</span><br><br>
-                        O pivô é o jogador que atua mais próximo à cesta, tanto na defesa, quanto no ataque. Ele percorre o garrafão em forma de parábola acompanhando as jogadas e se torna uma possibilidade finalização em função de sua altura. Além disso, briga pelos rebotes seja para retomar a jogada passando a bola para as extremidades do garrafão ou convertendo o ponto.
-
-                    </li>
-                </ul>
-                
-            </div>
-    </div>
-  </div>
-  
 <script>
 
+function abrirLogin(){
+    window.location = "http://localhost:3333/login.html"
+}
+function abrirIndex(){
+    window.location = "http://localhost:3333/index.html"
+}
 
+function abrirModalAjuda(){
+    corpo.classList.add("camadaCinza")
+    modal.classList.remove("invisivel")
+}
 
-    function abrirModalJs(){
-    window.location="http://localhost:3333/Dream%20Team.html#popup1"
-  }
-  function fechar(){
-    window.location="http://localhost:3333/Dream%20Team.html"
-  }
-  function abrirIndex(){
-    window.location="http://localhost:3333/index.html"
-  }
+function fechar(){
+    corpo.classList.remove("camadaCinza")
+    modal.classList.add("invisivel")
+}
+function aparecerModalJogador(){
+    corpo.classList.add("camadaCinza")
+    modalJogadores.classList.remove("invisivel")
+}
 
-  function abrirModalAjuda(){
-    window.location="http://localhost:3333/Dream%20Team.html#popupAjuda"
-  }
-  function abrirLogin(){
-    window.location="http://localhost:3333/login.html"
-  }
     </script>
     <script src="FuncoesSite/validaCadastro.js"></script>
     <script src="FuncoesSite/classeTime.js"></script>

@@ -146,7 +146,7 @@ function JogarNovamente(idPassado) {
         })
     }).then(function (resposta) {
         if (resposta.ok) {
-            window.location = "http://localhost:3333/Dream%20Team2.html"
+            window.location = "http://localhost:3333/Dream%20Team.html"
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
         }

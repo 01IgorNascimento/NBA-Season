@@ -46,13 +46,34 @@ select usuario.nome as nome, avg(jogador.idade) mediaIdade
     join jogador on timeCriado.nomeJogador = jogador.nome group by usuario.nome order by mediaIdade desc limit 1;
     
     
-select count(id) from usuario;
+select * from jogador order by idade desc;
 
-select * from timeCriado;
+select * from usuario;
 
+    SELECT nomeJogador, Count(*) as QtdRepeticoes FROM timeCriado
+    GROUP BY nomeJogador
+    HAVING Count(*) > 1
+    order by QtdRepeticoes desc limit 1;
+    
+    
+    select * from jogador order by idade asc;
 
 
 SELECT nomeJogador, Count(*) as QtdRepeticoes FROM timeCriado
 GROUP BY nomeJogador
-HAVING Count(*) > 1
+HAVING nomeJogador like "%y%"
 order by QtdRepeticoes desc limit 1;
+-- having é um where para dados agrupados
+
+    SELECT nomeJogador, Count(*) as QtdRepeticoes FROM timeCriado
+    GROUP BY nomeJogador
+    HAVING Count(*) > 1
+    order by QtdRepeticoes desc limit 1;
+
+SELECT nomeJogador, Count(*) as QtdRepeticoes FROM timeCriado
+GROUP BY nomeJogador
+HAVING Count(fkJogador) > 1
+order by QtdRepeticoes desc limit 3;
+-- outro exelplo de having
+
+select * from usuario;
