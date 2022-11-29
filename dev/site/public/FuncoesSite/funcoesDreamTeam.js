@@ -43,8 +43,7 @@ function EscolherJogador(imagemAlvo, texto) {
             jogadoresEscolhidos.push(jogadorCadastrado)
             cadastrarTimeCriado(jogadorCadastrado.nome, jogadorCadastrado.id, sessionStorage.ID_USUARIO)
             if (contadorJogadores == 5) {
-                window.location = "http://localhost:3333/Dream%20Team.html#popup1"
-
+                aparecerModalJogador()
                 AtualizarModal()
             }
             else {
@@ -77,7 +76,7 @@ function AtualizarModal() {
     for (var x = 0; x < jogadoresEscolhidos.length; x++) {
         var salario = jogadoresEscolhidos[x].salario
         salario = salario.toLocaleString('en-gb', { style: 'currency', currency: 'USD' });
-        caixaModal.innerHTML += `
+        modalJogadores.innerHTML += `
         <div class="jogadorModal">
     <div>
         
@@ -93,7 +92,7 @@ function AtualizarModal() {
 </div >
             `
     }
-    caixaModal.innerHTML += `
+    modalJogadores.innerHTML += `
             <button class="botoesModal" id = "btnContinuar" onclick="Continuar()"> Continuar</button>
             <button class="botoesModal" id="btnNovamente" onclick="JogarNovamente(1)">Jogar Novamente</button>
         `
@@ -147,7 +146,7 @@ function JogarNovamente(idPassado) {
         })
     }).then(function (resposta) {
         if (resposta.ok) {
-            window.location = "http://localhost:3333/Dream%20Team.html"
+            window.location = "http://localhost:3333/Dream%20Team2.html"
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
         }
