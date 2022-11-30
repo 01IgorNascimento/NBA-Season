@@ -33,7 +33,7 @@ h1 {
     height: 600px;
     background-color: white;
     position: absolute;
-
+    z-index: 2;
     top: 40px;
     left: 130px;
     border-radius: 10px;

@@ -1,9 +1,5 @@
     use nba_season;
     
-    
-    
-    
-
 select usuario.nome as nomeUsuario, avg(jogador.overhall) as mediaOverhall, max(jogador.overhall) as maior, sum(jogador.salario) as salario, usuario.id
     from usuario join timeCriado on fkUSuario = usuario.id
     join jogador on timeCriado.nomeJogador = jogador.nome group by usuario.nome order by mediaOverhall desc;
@@ -54,9 +50,6 @@ select usuario.nome as nomeUsuario,  avg(jogador.overhall) as mediaOverhall,  ma
     
 
 select * from timeCriado;
-
-update usuario set nome = "Lucas Ribeiro"  where id =1005;
-
 -- Atual
 select * from timePadrao;
 select * from jogador;
